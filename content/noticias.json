@@ -1,0 +1,62 @@
+[
+  {
+    "titulo": "Jornada comunitaria: así se vivió el encuentro con vecinas y vecinos",
+    "imagen": "",
+    "categoria": "Social",
+    "fecha": "2026-11-19",
+    "resumen": "Resumen breve de la nota destacada del día, en dos o tres líneas que invitan a leerla completa.",
+    "contenido": "Texto de ejemplo para mostrar cómo se ve el desarrollo completo de una nota. Aquí el equipo de comunicación cuenta qué pasó, dónde, cuándo y quiénes participaron.\n\nCada párrafo se separa con una línea en blanco y aparece por separado en la página.\n\nLa nota cierra con la información que la gente necesita para participar o enterarse de lo que sigue.",
+    "autor": "Comunicación SOMOS Torreón",
+    "ejemplo": true
+  },
+  {
+    "titulo": "El comité municipal sesiona para definir su agenda del mes",
+    "imagen": "",
+    "categoria": "Institucional",
+    "fecha": "2026-11-18",
+    "resumen": "Ejemplo de nota sobre una reunión del comité y los acuerdos que se tomaron.",
+    "contenido": "Texto de ejemplo para mostrar cómo se ve el desarrollo completo de una nota. Aquí el equipo de comunicación cuenta qué pasó, dónde, cuándo y quiénes participaron.\n\nCada párrafo se separa con una línea en blanco y aparece por separado en la página.\n\nLa nota cierra con la información que la gente necesita para participar o enterarse de lo que sigue.",
+    "autor": "Comunicación SOMOS Torreón",
+    "ejemplo": true
+  },
+  {
+    "titulo": "SOMOS Impacto abre su convocatoria para sumar a más jóvenes",
+    "imagen": "",
+    "categoria": "Juvenil",
+    "fecha": "2026-11-16",
+    "resumen": "Ejemplo de nota sobre las actividades del equipo juvenil.",
+    "contenido": "Texto de ejemplo para mostrar cómo se ve el desarrollo completo de una nota. Aquí el equipo de comunicación cuenta qué pasó, dónde, cuándo y quiénes participaron.\n\nCada párrafo se separa con una línea en blanco y aparece por separado en la página.\n\nLa nota cierra con la información que la gente necesita para participar o enterarse de lo que sigue.",
+    "autor": "Comunicación SOMOS Torreón",
+    "ejemplo": true
+  },
+  {
+    "titulo": "Posicionamiento del comité municipal sobre un tema de la ciudad",
+    "imagen": "",
+    "categoria": "Institucional",
+    "fecha": "2026-11-14",
+    "resumen": "Ejemplo de comunicado oficial del comité.",
+    "contenido": "Texto de ejemplo para mostrar cómo se ve el desarrollo completo de una nota. Aquí el equipo de comunicación cuenta qué pasó, dónde, cuándo y quiénes participaron.\n\nCada párrafo se separa con una línea en blanco y aparece por separado en la página.\n\nLa nota cierra con la información que la gente necesita para participar o enterarse de lo que sigue.",
+    "autor": "Comunicación SOMOS Torreón",
+    "ejemplo": true
+  },
+  {
+    "titulo": "Campaña de limpieza: lo que logramos entre todas y todos",
+    "imagen": "",
+    "categoria": "Social",
+    "fecha": "2026-11-11",
+    "resumen": "Ejemplo de nota con el resultado de una actividad en la comunidad.",
+    "contenido": "Texto de ejemplo para mostrar cómo se ve el desarrollo completo de una nota. Aquí el equipo de comunicación cuenta qué pasó, dónde, cuándo y quiénes participaron.\n\nCada párrafo se separa con una línea en blanco y aparece por separado en la página.\n\nLa nota cierra con la información que la gente necesita para participar o enterarse de lo que sigue.",
+    "autor": "Comunicación SOMOS Torreón",
+    "ejemplo": true
+  },
+  {
+    "titulo": "Jóvenes de SOMOS Impacto presentan su primer proyecto",
+    "imagen": "",
+    "categoria": "Juvenil",
+    "fecha": "2026-11-08",
+    "resumen": "Ejemplo de nota sobre un proyecto del equipo juvenil.",
+    "contenido": "Texto de ejemplo para mostrar cómo se ve el desarrollo completo de una nota. Aquí el equipo de comunicación cuenta qué pasó, dónde, cuándo y quiénes participaron.\n\nCada párrafo se separa con una línea en blanco y aparece por separado en la página.\n\nLa nota cierra con la información que la gente necesita para participar o enterarse de lo que sigue.",
+    "autor": "Comunicación SOMOS Torreón",
+    "ejemplo": true
+  }
+]
