@@ -1,0 +1,923 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Comité Municipal de SOMOS en Torreón, Coahuila: noticias, actividades, comité y SOMOS Impacto.">
+<style>[hidden]{display:none!important}:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0}</style>
+<title>SOMOS Torreón</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@0,62..125,100..900;1,62..125,100..900&family=Inter:wght@400;500;600;700&display=swap">
+<style>
+:root{
+  /* Concepto: bloques de color pleno (magenta, tinta, papel) y titulares extendidos en cursiva como el logo.
+     Cada vista abre como una portada; el contenido se ordena en rejillas sobrias y sin sombras. */
+  --bg:#FFFFFF; --paper:#F8E8F0; --fg:#202027; --muted:rgba(32,32,39,.72); --line:rgba(32,32,39,.14);
+  --brand:#C92B76; --brand-text:#C92B76; --soft:#F8E8F0;
+  --ink:#202027; --on-ink:#FFFFFF;
+  --display:"Archivo","Arial Black",Impact,sans-serif;
+  --body:"Inter",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+}
+
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--fg);font:400 1rem/1.6 var(--body);-webkit-text-size-adjust:100%}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:30;background:var(--bg)}
+h1,h2,h3,h4,p,ul,ol,figure{margin:0}
+ul,ol{padding:0;list-style:none}
+a{color:inherit}
+img{display:block;max-width:100%;height:auto}
+button{font:inherit;color:inherit;cursor:pointer}
+:focus-visible{outline:3px solid var(--brand-text);outline-offset:3px}
+.hdr :focus-visible,.ink :focus-visible,.pagehead :focus-visible{outline-color:#fff}
+
+.wrap{max-width:1180px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+
+/* Tipografía de titulares */
+.disp{font-family:var(--display);font-weight:800;letter-spacing:-.02em;line-height:1.05;text-wrap:balance}
+h1.disp{font-size:clamp(2.3rem,7vw,4.4rem)}
+h2.disp{font-size:clamp(1.6rem,3.8vw,2.5rem)}
+h3{font-family:var(--display);font-weight:750;font-stretch:100%;font-size:1.15rem;line-height:1.2;text-wrap:balance}
+.eyebrow{font-size:.74rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--brand-text)}
+.muted{color:var(--muted)}
+.prose{max-width:62ch}
+.prose p+p{margin-top:1em}
+
+/* Aviso de borrador */
+.draft{background:var(--ink);color:#fff;font-size:.78rem;padding:7px 0;text-align:center}
+.draft .wrap{display:block}
+.draft b{color:var(--soft)}
+
+/* Encabezado */
+.hdr{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--brand);color:#fff}
+.hdr .wrap{display:flex;align-items:center;gap:14px;min-height:66px}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none}
+.logo img{height:30px;width:auto}
+.logo span{font:800 .8rem/1 var(--display);letter-spacing:.14em;text-transform:uppercase;padding-left:10px;border-left:2px solid rgba(255,255,255,.7)}
+.nav{display:flex;align-items:center;gap:2px;margin-left:auto}
+.nav a{position:relative;display:block;padding:10px 11px;font-size:.88rem;font-weight:600;text-decoration:none}
+.nav a::after{content:"";position:absolute;left:11px;right:11px;bottom:3px;height:3px;border-radius:2px;background:#fff;transform:scaleX(0);transform-origin:center;transition:transform .28s cubic-bezier(.2,.7,.2,1)}
+.nav a:hover::after,.nav a[aria-current="page"]::after{transform:scaleX(1)}
+.nav .join::after{display:none}
+.nav .join{margin-left:8px}
+.burger{display:none;margin-left:auto;background:none;border:2px solid #fff;border-radius:8px;padding:8px 12px;font-weight:700;font-size:.85rem}
+@media (max-width:980px){
+  .burger{display:inline-flex}
+  .nav{display:flex;position:absolute;top:100%;left:0;right:0;margin:0;flex-direction:column;align-items:stretch;background:var(--ink);padding:8px max(16px,env(safe-area-inset-right,0px)) 18px max(16px,env(safe-area-inset-left,0px));box-shadow:0 18px 30px rgba(32,32,39,.25);
+    visibility:hidden;opacity:0;transform:translateY(-6px);clip-path:inset(0 0 100% 0);
+    transition:clip-path .38s cubic-bezier(.2,.7,.2,1),opacity .25s ease,transform .38s cubic-bezier(.2,.7,.2,1),visibility 0s linear .38s}
+  .nav.open{visibility:visible;opacity:1;transform:none;clip-path:inset(0 0 -40px 0);
+    transition:clip-path .38s cubic-bezier(.2,.7,.2,1),opacity .25s ease,transform .38s cubic-bezier(.2,.7,.2,1),visibility 0s}
+  .nav a::after{display:none}
+  .nav a[aria-current="page"]{color:var(--soft);font-weight:800}
+  .nav a{padding:14px 4px;border-bottom:1px solid rgba(255,255,255,.12)}
+  .nav .join{margin:14px 0 0;text-align:center}
+}
+
+/* Botones inclinados */
+.btn{display:inline-block;border:2px solid transparent;border-radius:10px;text-decoration:none;font-weight:700;font-size:.95rem;padding:13px 24px;text-align:center;transition:transform .15s,box-shadow .15s,background-color .15s}
+.btn>span{display:inline}
+.btn:hover{transform:translateY(-2px);box-shadow:0 6px 16px rgba(32,32,39,.2)}
+.btn--ink{background:var(--ink);color:#fff}
+.btn--white{background:#fff;color:var(--ink)}
+.btn--brand{background:var(--brand);color:#fff}
+.btn--line{background:transparent;color:#fff;border-color:#fff}
+.btn--outline{background:transparent;color:var(--brand-text);border-color:var(--brand)}
+.btn--outline:hover{background:var(--soft)}
+.btn--sm{padding:10px 18px;font-size:.82rem}
+.btns{display:flex;flex-wrap:wrap;gap:14px}
+.more{font-weight:700;color:var(--brand-text);text-decoration:none;white-space:nowrap}
+.more:hover{text-decoration:underline}
+
+/* Marcadores de posición */
+.ph{position:relative;overflow:hidden;border-radius:12px;background:repeating-linear-gradient(135deg,rgba(255,255,255,.1) 0 14px,transparent 14px 28px),var(--brand)}
+.ph--ink{background:repeating-linear-gradient(135deg,rgba(255,255,255,.08) 0 14px,transparent 14px 28px),var(--ink)}
+.ph--soft{background:repeating-linear-gradient(135deg,rgba(201,43,118,.1) 0 14px,transparent 14px 28px),var(--soft)}
+.ph::after{content:attr(data-label);position:absolute;left:10px;bottom:8px;right:10px;font-size:.66rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#fff}
+.ph--soft::after{color:var(--brand-text)}
+.tag{display:inline-block;font-size:.66rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;background:var(--soft);color:var(--brand-text);padding:3px 8px;border-radius:6px}
+.tag--ink{background:var(--ink);color:#fff}
+
+/* Secciones */
+.sec{padding-block:clamp(44px,7vw,92px)}
+.sec--paper{background:var(--paper)}
+.ink{background:var(--ink);color:var(--on-ink)}
+.shead{display:flex;justify-content:space-between;align-items:flex-end;gap:12px 24px;flex-wrap:wrap;margin-bottom:30px}
+.shead .eyebrow{display:block;margin-bottom:10px}
+.ink .eyebrow{color:var(--soft)}
+.grid{display:grid;gap:26px}
+.g3{grid-template-columns:repeat(3,minmax(0,1fr))}
+.g2{grid-template-columns:repeat(2,minmax(0,1fr))}
+@media (max-width:900px){.g3{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:600px){.g3,.g2{grid-template-columns:minmax(0,1fr)}}
+
+/* Portada */
+.hero{background:var(--bg);color:var(--fg)}
+.hero .wrap{display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);gap:48px;align-items:center;padding-block:clamp(28px,5vw,64px)}
+.hero .tagline{display:inline-block;background:var(--soft);color:var(--brand-text);font-size:.76rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:7px 14px;border-radius:999px;margin-bottom:20px}
+.hero h1 span{display:block}
+.hero h1 .accent{color:var(--brand-text)}
+.hero .lead{font-size:clamp(1.15rem,2.2vw,1.5rem);font-weight:600;line-height:1.3;margin-top:18px;max-width:28ch}
+.hero .msg{margin-top:12px;max-width:46ch;color:var(--muted)}
+.hero .btns{margin-top:28px}
+.hero .ph{aspect-ratio:5/4;border-radius:20px}
+@media (max-width:860px){
+  .hero .wrap{grid-template-columns:minmax(0,1fr);gap:28px}
+  .hero .ph{aspect-ratio:4/3}
+}
+
+/* Cuenta regresiva */
+.count .wrap{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px 40px;padding-block:28px}
+.count p{max-width:24ch;font-weight:700;letter-spacing:.04em;text-transform:uppercase;font-size:.84rem;line-height:1.35}
+.count p strong{display:block;font:900 1.2rem/1.1 var(--display);color:var(--soft);margin-top:4px}
+.cd{display:flex;gap:clamp(12px,3.4vw,34px)}
+.cd div{text-align:center;min-width:0}
+.cd b{display:block;font:900 clamp(2.1rem,7.4vw,4.4rem)/1 var(--display);font-variant-numeric:tabular-nums}
+.cd span{display:block;margin-top:6px;font-size:.66rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;opacity:.75}
+
+/* Noticias (tarjetas) */
+.ncard{display:block;text-decoration:none;min-width:0}
+.ncard .ph{aspect-ratio:16/10}
+.ncard:not(.lead-story){border:1px solid var(--line);border-radius:14px;overflow:hidden;background:var(--bg);transition:transform .2s,box-shadow .2s}
+.ncard:not(.lead-story):hover{transform:translateY(-3px);box-shadow:0 10px 24px rgba(32,32,39,.12)}
+.ncard:not(.lead-story) .ph{border-radius:0}
+.ncard:not(.lead-story) .nmeta,.ncard:not(.lead-story) h3,.ncard:not(.lead-story) p{margin-left:18px;margin-right:18px}
+.ncard:not(.lead-story) p{margin-bottom:0}
+.ncard .author{display:block;margin:12px 18px 20px;font-size:.8rem;font-weight:600;color:var(--muted)}
+.lead-story .author{margin:14px 0 0}
+.nimg{display:block;width:100%;aspect-ratio:16/10;object-fit:cover;border-radius:12px}
+.ncard:not(.lead-story) .nimg{border-radius:0}
+.reader .nimg{aspect-ratio:16/9;margin:26px 0}
+.reader .summary{font-size:1.2rem;font-weight:600;line-height:1.5;margin-bottom:1.1em}
+.lead-story .ph{border-radius:16px}
+.nmeta{display:flex;flex-wrap:wrap;align-items:center;gap:6px 10px;margin:14px 0 8px;font-size:.78rem;color:var(--muted)}
+.cat{font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--brand-text)}
+.ncard h3{transition:color .15s}
+.ncard:hover h3{color:var(--brand-text)}
+.ncard p{margin-top:8px;color:var(--muted);font-size:.95rem}
+
+/* Eventos */
+.events{display:grid;gap:0;border-top:1px solid var(--line)}
+.event{display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:20px;align-items:center;padding:18px 0;border-bottom:1px solid var(--line)}
+.date{width:76px;height:76px;background:var(--brand);color:#fff;display:grid;place-content:center;text-align:center;border-radius:12px}
+
+.date b{display:block;font:900 1.9rem/1 var(--display);font-style:italic}
+.date span{display:block;font-size:.7rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase}
+.event h3{margin-bottom:4px}
+.event p{color:var(--muted);font-size:.92rem}
+@media (max-width:600px){.event{grid-template-columns:auto minmax(0,1fr)}.event .tag{grid-column:2;justify-self:start}}
+
+/* Comité */
+.committee-intro{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:40px;align-items:center}
+@media (max-width:860px){.committee-intro{grid-template-columns:minmax(0,1fr);gap:28px}}
+.big-num{font:900 clamp(4rem,12vw,8rem)/.9 var(--display);color:var(--brand-text)}
+.member{min-width:0}
+.member .ph{aspect-ratio:4/5;display:grid;place-items:center}
+.member .ph b{font:900 clamp(2.4rem,6vw,3.6rem)/1 var(--display);color:#fff;letter-spacing:.02em}
+.member .ph::after{content:"Foto pendiente"}
+.member h3{margin-top:14px}
+.member .role{margin-top:6px;font-size:.78rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--brand-text);line-height:1.35}
+.member--lead{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:20px;align-items:end}
+.member--lead h3{font-size:clamp(1.3rem,2.6vw,1.8rem);margin-top:0}
+.member--lead .role{font-size:.84rem}
+@media (max-width:520px){.member--lead{grid-template-columns:minmax(0,1fr)}.member--lead h3{margin-top:14px}}
+.group+.group{margin-top:clamp(40px,6vw,72px)}
+.group>h2{margin-bottom:24px;display:flex;align-items:center;gap:14px}
+.group>h2::after{content:"";flex:1;height:2px;background:var(--line)}
+.cols-3{display:grid;gap:30px 24px;grid-template-columns:repeat(3,minmax(0,1fr))}
+.cols-2{display:grid;gap:30px 24px;grid-template-columns:repeat(2,minmax(0,1fr))}
+@media (max-width:900px){.cols-3{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:640px){.cols-2:not(.keep){grid-template-columns:minmax(0,1fr)}}
+
+/* Encabezado de página interior */
+.pagehead{background:var(--brand);color:#fff;overflow:hidden}
+.pagehead .wrap{padding-block:clamp(34px,6vw,72px)}
+.pagehead p{margin-top:16px;max-width:52ch;font-size:1.1rem;font-weight:500}
+.pagehead--ink{background:var(--ink)}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:26px}
+.chip{background:transparent;border:2px solid #fff;border-radius:999px;color:#fff;padding:7px 14px;font-weight:700;font-size:.82rem}
+.chip:hover{background:#fff;color:var(--ink)}
+.chip[aria-pressed="true"]{background:#fff;color:var(--ink)}
+
+/* Nosotros */
+.block+.block{margin-top:clamp(52px,8vw,96px)}
+.block h2{margin-bottom:22px}
+.lede{font-size:clamp(1.25rem,2.6vw,1.8rem);font-weight:600;line-height:1.35;max-width:36ch}
+.pending{border:2px dashed var(--brand);border-radius:14px;padding:26px;max-width:62ch}
+.pending p+p{margin-top:12px}
+.values{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;border-top:2px solid var(--fg)}
+.value{padding:22px 18px 26px 0;border-bottom:1px solid var(--line)}
+.value h3{font-size:clamp(1.4rem,3vw,2rem);font-weight:800;color:var(--brand-text);margin-bottom:8px}
+.value p{color:var(--muted);font-size:.95rem;max-width:30ch}
+@media (max-width:760px){.values{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:420px){.values{grid-template-columns:minmax(0,1fr)}}
+.mv .box{padding:28px;background:var(--paper);border-radius:14px}
+.mv .box h3{font:800 1.5rem/1.1 var(--display);color:var(--brand-text);margin-bottom:12px}
+.mv .box .tag{margin-bottom:12px}
+.ident{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+.ident figure{display:grid;gap:10px;min-width:0}
+.tile{aspect-ratio:3/2;display:grid;place-items:center;padding:22px;border-radius:14px}
+.tile img{max-height:100%;width:auto;max-width:78%}
+.tile--brand{background:var(--brand)}
+.tile--ink{background:var(--ink)}
+.tile--paper{background:var(--paper);border:1px solid var(--line)}
+.tile--paper img{max-width:none;height:150px;width:150px}
+.ident figcaption{font-size:.84rem;color:var(--muted)}
+@media (max-width:760px){.ident{grid-template-columns:minmax(0,1fr)}.tile{aspect-ratio:auto;min-height:130px}}
+.swatches{display:flex;flex-wrap:wrap;gap:14px;margin-top:22px}
+.sw{display:flex;align-items:center;gap:10px;font-size:.85rem}
+.sw i{display:block;width:38px;height:38px;border:1px solid var(--line)}
+.sw b{display:block;font-size:.9rem}
+.docs{border-top:2px solid var(--fg)}
+.doc{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:18px 0;border-bottom:1px solid var(--line);text-decoration:none}
+.doc:hover h3{color:var(--brand-text)}
+.doc p{color:var(--muted);font-size:.9rem;margin-top:3px}
+
+/* Noticias (periódico) */
+.paper-head{border-bottom:3px double var(--fg);padding-bottom:18px;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:10px 24px}
+.paper-head .date-line{font-size:.82rem;font-weight:600;text-transform:capitalize;color:var(--muted)}
+.filters{display:flex;flex-wrap:wrap;gap:8px;margin:22px 0 30px}
+.filters .chip{border-color:var(--fg);color:var(--fg)}
+.filters .chip:hover,.filters .chip[aria-pressed="true"]{background:var(--ink);color:#fff;border-color:var(--ink)}
+.lead-story{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,1fr);gap:30px;align-items:center;padding-bottom:34px;margin-bottom:34px;border-bottom:1px solid var(--line)}
+.lead-story .ph{aspect-ratio:16/10}
+.lead-story h2{font-size:clamp(1.5rem,3.6vw,2.5rem);line-height:1.05}
+.lead-story p{margin-top:12px;color:var(--muted)}
+@media (max-width:820px){.lead-story{grid-template-columns:minmax(0,1fr)}}
+.reader{max-width:760px}
+.reader .back{background:none;border:0;padding:0;margin-bottom:26px;font-weight:700;color:var(--brand-text)}
+.reader h1{font-family:var(--display);font-weight:850;font-size:clamp(1.9rem,5vw,3.2rem);line-height:1.05;margin:10px 0 16px;text-wrap:balance}
+.reader .ph{aspect-ratio:16/9;margin:26px 0}
+.reader .byline{color:var(--muted);font-size:.9rem}
+.reader .body p{font-size:1.08rem;line-height:1.7}
+.reader .body p+p{margin-top:1.1em}
+
+/* Actividades */
+.month{margin-bottom:clamp(36px,6vw,60px)}
+.month>h2{font-family:var(--display);font-weight:800;font-size:clamp(1.3rem,3vw,1.9rem);margin-bottom:22px;display:flex;align-items:center;gap:14px}
+.month>h2::after{content:"";flex:1;height:2px;background:var(--line)}
+.acard{min-width:0;display:flex;flex-direction:column}
+.acard .ph{aspect-ratio:4/3}
+.acard .when{display:flex;flex-wrap:wrap;gap:6px 10px;align-items:center;margin:14px 0 8px;font-size:.78rem;color:var(--muted)}
+.acard .when b{color:var(--fg)}
+.acard p{margin-top:8px;color:var(--muted);font-size:.93rem}
+.acard .tags{margin-top:12px;display:flex;flex-wrap:wrap;gap:6px}
+
+/* SOMOS Impacto */
+.impacto-hero{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:40px;align-items:center}
+.impacto-hero img{width:clamp(180px,26vw,320px);height:auto}
+@media (max-width:760px){.impacto-hero{grid-template-columns:minmax(0,1fr)}.impacto-hero img{width:180px;order:-1}}
+.gallery{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
+.gallery .ph{aspect-ratio:1/1}
+.gallery .ph:nth-child(1),.gallery .ph:nth-child(6){grid-column:span 2;grid-row:span 2}
+@media (max-width:700px){.gallery{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.conv{display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:20px;align-items:center;padding:20px 0;border-bottom:1px solid var(--line)}
+.conv:first-child{border-top:2px solid var(--fg)}
+.status{font-size:.7rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;padding:6px 10px;background:var(--brand);color:#fff;white-space:nowrap;border-radius:6px}
+.status--next{background:var(--ink)}
+.conv p{color:var(--muted);font-size:.9rem;margin-top:3px}
+@media (max-width:640px){.conv{grid-template-columns:minmax(0,1fr)}.conv .btn{justify-self:start}}
+.proj{border:1px solid var(--line);border-radius:14px;padding:24px;display:grid;gap:12px;align-content:start}
+.proj .num{font:900 2.4rem/1 var(--display);color:var(--brand-text)}
+.proj p{color:var(--muted);font-size:.94rem}
+
+/* Presentación del comité (inicio) */
+.mini-members{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
+
+/* Impacto banner (inicio) */
+.impacto-banner .wrap{display:grid;grid-template-columns:auto minmax(0,1fr);gap:clamp(24px,5vw,64px);align-items:center;padding-block:clamp(40px,6vw,80px)}
+.impacto-banner img{width:clamp(130px,20vw,240px);height:auto}
+.impacto-banner p{margin:16px 0 26px;max-width:46ch;opacity:.92}
+@media (max-width:640px){.impacto-banner .wrap{grid-template-columns:minmax(0,1fr)}}
+
+/* Redes */
+.social{display:flex;flex-wrap:wrap;gap:12px}
+.social a{border:2px solid var(--fg);border-radius:10px;padding:12px 20px;font-weight:800;text-decoration:none}
+.social a:hover{background:var(--ink);border-color:var(--ink);color:#fff}
+
+/* Pie */
+.foot{background:var(--ink);color:#fff;font-size:.9rem}
+.foot .wrap{display:grid;grid-template-columns:minmax(0,1.4fr) repeat(2,minmax(0,1fr));gap:36px;padding-block:52px 28px}
+.foot img{height:34px;width:auto;margin-bottom:16px}
+.foot h4{font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--soft);margin-bottom:12px}
+.foot li+li{margin-top:8px}
+.foot a{text-decoration:none;opacity:.9}
+.foot a:hover{text-decoration:underline;opacity:1}
+.foot .legal{grid-column:1/-1;border-top:1px solid rgba(255,255,255,.18);padding-top:20px;font-size:.8rem;opacity:.75;display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 20px}
+@media (max-width:760px){.foot .wrap{grid-template-columns:minmax(0,1fr)}}
+
+
+/* Bienvenida: pantalla inicial difuminada, una vez por sesión.
+   Para usar una foto de Torreón, agrégala como background-image de .welcome-photo. */
+.welcome{position:fixed;inset:0;z-index:40;display:grid;align-items:center;color:#fff;
+  padding:calc(env(safe-area-inset-top,0px) + 24px) max(16px,env(safe-area-inset-right,0px)) calc(env(safe-area-inset-bottom,0px) + 24px) max(16px,env(safe-area-inset-left,0px));
+  background:radial-gradient(70% 60% at 85% 15%,rgba(201,43,118,.78),transparent 70%),radial-gradient(60% 60% at 8% 100%,rgba(248,232,240,.22),transparent 70%),linear-gradient(135deg,rgba(32,32,39,.84),rgba(32,32,39,.6));
+  -webkit-backdrop-filter:blur(22px);backdrop-filter:blur(22px);transition:opacity .4s ease,visibility .4s}
+@supports not ((backdrop-filter:blur(1px)) or (-webkit-backdrop-filter:blur(1px))){.welcome{background:linear-gradient(135deg,var(--ink),var(--brand))}}
+.welcome.out{opacity:0;visibility:hidden;pointer-events:none}
+.welcome-photo{position:absolute;inset:0;background-size:cover;background-position:center;z-index:-1}
+.welcome-in{width:100%;max-width:1180px;margin:0 auto}
+.welcome{overflow-y:auto}
+.welcome-in{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:clamp(28px,6vw,80px)}
+.welcome-text{min-width:0}
+.welcome-logo{width:clamp(200px,30vw,360px);height:auto;filter:drop-shadow(0 18px 40px rgba(32,32,39,.45))}
+@media (max-width:760px){.welcome-in{grid-template-columns:minmax(0,1fr);gap:24px}.welcome-logo{order:-1;width:clamp(130px,40vw,180px)}}
+.welcome .tagline{display:inline-block;background:var(--soft);color:var(--brand-text);font-size:.76rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:7px 14px;border-radius:999px;margin-bottom:22px}
+.welcome h1{font-size:clamp(3.2rem,14vw,8.5rem);line-height:.95}
+.welcome h1 span{display:block}
+.welcome h1 .accent{color:var(--soft)}
+.welcome p{margin-top:22px;font-size:clamp(1.1rem,2.4vw,1.5rem);font-weight:600}
+.welcome .btn{margin-top:36px;font-size:1.05rem;padding:16px 36px}
+.welcome :focus-visible{outline-color:#fff}
+html.locked,html.locked body{overflow:hidden}
+/* Brillo rosa tipo LED al pasar el cursor (solo con mouse) */
+@media (hover:hover){
+  .btn,.ncard,.proj,.social a,.chip,.member .ph,.acard .ph,.lead-story .ph,.gallery .ph,.date{transition:transform .25s cubic-bezier(.2,.7,.2,1),box-shadow .35s ease,background-color .2s,color .2s,border-color .3s}
+  .more,.nav a,.foot a,.doc h3{transition:text-shadow .3s ease,color .2s}
+  .btn:hover{box-shadow:0 0 0 1px rgba(201,43,118,.25),0 8px 26px rgba(201,43,118,.45),0 0 18px rgba(201,43,118,.35)}
+  .ncard:not(.lead-story):hover,.proj:hover{border-color:rgba(201,43,118,.5);box-shadow:0 0 0 1px rgba(201,43,118,.45),0 12px 34px rgba(201,43,118,.28),0 0 22px rgba(201,43,118,.22)}
+  .member:hover .ph,.acard:hover .ph,.lead-story:hover .ph,.gallery .ph:hover{box-shadow:0 0 0 2px rgba(201,43,118,.55),0 12px 32px rgba(201,43,118,.35)}
+  .event:hover .date{box-shadow:0 0 0 3px rgba(201,43,118,.18),0 8px 22px rgba(201,43,118,.45)}
+  .social a:hover{background:var(--brand);border-color:var(--brand);color:#fff;box-shadow:0 8px 24px rgba(201,43,118,.45)}
+  .chip:hover{box-shadow:0 0 16px rgba(201,43,118,.55)}
+  .more:hover,.doc:hover h3{text-shadow:0 0 14px rgba(201,43,118,.45)}
+  .nav a:hover{text-shadow:0 0 12px rgba(255,255,255,.85)}
+  .foot a:hover{text-shadow:0 0 10px rgba(201,43,118,.95)}
+  /* luz rosa que sigue al cursor dentro de las tarjetas */
+  .ncard:not(.lead-story),.proj{position:relative}
+  .ncard:not(.lead-story)::before,.proj::before{content:"";position:absolute;inset:0;z-index:2;pointer-events:none;border-radius:inherit;opacity:0;transition:opacity .35s ease;background:radial-gradient(260px circle at var(--mx,50%) var(--my,50%),rgba(201,43,118,.16),transparent 65%)}
+  .ncard:not(.lead-story):hover::before,.proj:hover::before{opacity:1}
+}
+.team-photo img{display:block;width:100%;height:auto;border-radius:16px}
+.team-photo figcaption{margin-top:12px;color:var(--muted);font-size:.92rem}
+@media (hover:hover){.team-photo img{transition:box-shadow .35s ease}.team-photo:hover img{box-shadow:0 0 0 2px rgba(201,43,118,.55),0 14px 36px rgba(201,43,118,.35)}}
+.rv{opacity:0;transform:translateY(22px)}
+.view .rv.in{opacity:1;transform:none;transition:opacity .65s ease,transform .65s cubic-bezier(.2,.7,.2,1)}
+.view[hidden]{display:none}
+.view{animation:fade .35s ease both}
+@keyframes fade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.acard .ph,.member .ph{transition:transform .2s}
+.acard:hover .ph,.member:hover .ph{transform:translateY(-3px)}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.btn,.ncard:not(.lead-story){transition:none}.btn:hover,.ncard:not(.lead-story):hover{transform:none}.view{animation:none}.nav,.nav.open{transition:none}.nav a::after{transition:none}.welcome{transition:none}.acard:hover .ph,.member:hover .ph{transform:none}}
+</style>
+</head>
+<body>
+
+<div class="welcome" id="welcome" role="dialog" aria-modal="true" aria-labelledby="welcome-title" hidden>
+  <div class="welcome-photo" aria-hidden="true"></div>
+  <div class="welcome-in">
+    <div class="welcome-text">
+      <span class="tagline">Comité Municipal · Torreón, Coahuila</span>
+      <h1 class="disp" id="welcome-title"><span>SOMOS</span><span class="accent">Torreón</span></h1>
+      <p>La fuerza que nos une.</p>
+      <button class="btn btn--brand" id="welcome-go" type="button"><span>Continuar →</span></button>
+    </div>
+    <img class="welcome-logo" data-logo="map" alt="SOMOS" width="360" height="360">
+  </div>
+</div>
+
+<div class="draft" id="draft"><div class="wrap"><b>Borrador de diseño.</b> Los textos y entradas marcados como <b>Ejemplo</b> son provisionales y se reemplazan con el contenido oficial del comité.</div></div>
+
+<header class="hdr">
+  <div class="wrap">
+    <a class="logo" href="#inicio" aria-label="SOMOS Torreón, ir al inicio">
+      <img data-logo="mx" alt="SOMOS" width="125" height="23"><span>Torreón</span>
+    </a>
+    <button class="burger" id="burger" aria-expanded="false" aria-controls="nav">Menú</button>
+    <nav class="nav" id="nav" aria-label="Principal">
+      <a href="#inicio" data-nav="inicio">Inicio</a>
+      <a href="#nosotros" data-nav="nosotros">Nosotros</a>
+      <a href="#comite" data-nav="comite">Comité</a>
+      <a href="#noticias" data-nav="noticias">Noticias</a>
+      <a href="#actividades" data-nav="actividades">Actividades</a>
+      <a href="#somos-impacto" data-nav="somos-impacto">SOMOS Impacto</a>
+      <a class="btn btn--white btn--sm join" href="https://registro.somosmx.org.mx/unete.php" target="_blank" rel="noopener"><span>¡Súmate!</span></a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+<!-- ===================== INICIO ===================== -->
+<section class="view" data-view="inicio" id="v-inicio">
+  <div class="hero">
+    <div class="wrap">
+      <div>
+        <span class="tagline">Comité Municipal · Torreón, Coahuila</span>
+        <h1 class="disp"><span>SOMOS</span><span class="accent">Torreón</span></h1>
+        <p class="lead">La fuerza que nos une, desde nuestra ciudad.</p>
+        <p class="msg">Somos vecinas y vecinos de Torreón que nos organizamos para participar, proponer y actuar desde la ciudadanía.</p>
+        <div class="btns">
+          <a class="btn btn--brand" href="#actividades"><span>Conoce las actividades</span></a>
+          <a class="btn btn--outline" href="#comite"><span>Conoce al comité</span></a>
+        </div>
+      </div>
+      <div class="ph ph--pink" role="img" aria-label="Espacio para la fotografía principal de SOMOS Torreón" data-label="Fotografía principal de SOMOS Torreón"></div>
+    </div>
+  </div>
+
+  <div class="count ink">
+    <div class="wrap">
+      <p>Cuenta regresiva<strong>6 de junio de 2027</strong></p>
+      <div class="cd" role="timer" aria-label="Tiempo que falta para el 6 de junio de 2027">
+        <div><b id="cd-d">000</b><span>Días</span></div>
+        <div><b id="cd-h">00</b><span>Horas</span></div>
+        <div><b id="cd-m">00</b><span>Min</span></div>
+        <div><b id="cd-s">00</b><span>Seg</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="sec">
+    <div class="wrap">
+      <div class="shead">
+        <div><span class="eyebrow">Lo más reciente</span><h2 class="disp">Noticias recientes</h2></div>
+        <a class="more" href="#noticias">Ver todas las noticias →</a>
+      </div>
+      <div class="grid g3" id="home-news"></div>
+    </div>
+  </div>
+
+  <div class="sec sec--paper">
+    <div class="wrap">
+      <div class="shead">
+        <div><span class="eyebrow">Agenda</span><h2 class="disp">Próximos eventos</h2></div>
+        <a class="more" href="#actividades">Ver actividades →</a>
+      </div>
+      <div class="events" id="home-events"></div>
+    </div>
+  </div>
+
+  <div class="sec">
+    <div class="wrap committee-intro">
+      <div>
+        <span class="eyebrow">Comité municipal</span>
+        <h2 class="disp" style="margin:10px 0 18px">Las personas que dan la cara por Torreón</h2>
+        <p class="prose muted">Conoce a quienes integran formalmente el comité municipal de SOMOS Torreón y el cargo que ocupa cada quien.</p>
+        <div class="btns" style="margin-top:24px"><a class="btn btn--brand" href="#comite"><span>Ver al comité completo</span></a></div>
+      </div>
+      <div>
+        <div class="big-num" id="member-count">13</div>
+        <p class="eyebrow" style="margin:8px 0 22px">integrantes en el comité</p>
+        <div class="mini-members" id="home-members"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="impacto-banner ink">
+    <div class="wrap">
+      <img data-logo="imp" alt="SOMOS Impacto Coahuila, la política del futuro" width="240" height="240">
+      <div>
+        <span class="eyebrow">Para las juventudes</span>
+        <h2 class="disp" style="margin-top:10px">SOMOS Impacto</h2>
+        <p>Equipo juvenil, proyectos, galería y convocatorias para quienes quieren hacer política de otra manera.</p>
+        <a class="btn btn--brand" href="#somos-impacto"><span>Entrar a SOMOS Impacto</span></a>
+      </div>
+    </div>
+  </div>
+
+  <div class="sec">
+    <div class="wrap">
+      <div class="shead"><div><span class="eyebrow">Redes sociales</span><h2 class="disp">Síguenos</h2></div></div>
+      <div class="social" id="social-home"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== NOSOTROS ===================== -->
+<section class="view" data-view="nosotros" id="v-nosotros" hidden>
+  <div class="pagehead">
+    <div class="wrap">
+      <h1 class="disp">Nosotros</h1>
+      <p>Qué es SOMOS, de dónde viene y qué defiende el comité de Torreón.</p>
+      <div class="chips" id="nos-chips">
+        <button class="chip" data-scroll="n-que">¿Qué es SOMOS?</button>
+        <button class="chip" data-scroll="n-historia">Historia</button>
+        <button class="chip" data-scroll="n-valores">Principios y valores</button>
+        <button class="chip" data-scroll="n-mision">Misión y visión</button>
+        <button class="chip" data-scroll="n-docs">Documentos</button>
+      </div>
+    </div>
+  </div>
+  <div class="sec">
+    <div class="wrap">
+      <div class="block" id="n-que">
+        <span class="eyebrow">Quiénes somos</span>
+        <h2 class="disp" style="margin-top:10px">¿Qué es SOMOS?</h2>
+        <p class="lede">SOMOS es un partido político nacional integrado por personas que nacimos desde la sociedad, con el propósito de organizarnos y transformar el país desde la ciudadanía.</p>
+        <div class="prose muted" style="margin-top:20px">
+          <p>No somos un movimiento tradicional: somos quienes ya no quieren esperar, sino actuar. En Torreón, el comité municipal acerca esa forma de hacer política a las colonias, los barrios y las escuelas de la ciudad.</p>
+        </div>
+      </div>
+
+      <div class="block" id="n-historia">
+        <h2 class="disp">Historia del partido</h2>
+        <p class="prose muted" style="margin-bottom:22px">Conoce cómo nació SOMOS y el camino que ha recorrido, en el sitio oficial del partido.</p>
+        <a class="btn btn--brand" href="https://somosmx.org.mx/nuestra-historia/" target="_blank" rel="noopener"><span>Leer la historia en somosmx.org.mx ↗</span></a>
+      </div>
+
+      <div class="block" id="n-valores">
+        <h2 class="disp">Principios y valores</h2>
+        <div class="values">
+          <div class="value"><h3>Esperanza</h3><p>Creemos que Torreón y México pueden cambiar si nos unimos.</p></div>
+          <div class="value"><h3>Justicia</h3><p>Una sociedad donde la ley y las oportunidades alcanzan a todas y todos.</p></div>
+          <div class="value"><h3>Bienestar</h3><p>Más calidad de vida para las familias de nuestra ciudad.</p></div>
+          <div class="value"><h3>Derechos</h3><p>Defendemos los derechos de todas las personas, sin excepción.</p></div>
+          <div class="value"><h3>Ciudadanía</h3><p>La política se hace desde la sociedad, con participación real.</p></div>
+          <div class="value"><h3>Unión</h3><p>Somos la fuerza que nos une: organizadas y organizados.</p></div>
+        </div>
+      </div>
+
+      <div class="block mv" id="n-mision">
+        <h2 class="disp">Misión y visión</h2>
+        <div class="grid g2">
+          <div class="box"><span class="tag">Texto provisional</span><h3>Misión</h3><p class="muted">Organizar a la ciudadanía de Torreón para que participe, proponga y actúe en la vida pública de su municipio.</p></div>
+          <div class="box"><span class="tag">Texto provisional</span><h3>Visión</h3><p class="muted">Un Torreón donde la ciudadanía participa, decide y se siente representada.</p></div>
+        </div>
+      </div>
+
+      <div class="block" id="n-docs">
+        <h2 class="disp">Documentos oficiales</h2>
+        <p class="muted prose" style="margin-bottom:22px">Enlaces al sitio nacional de SOMOS, mientras el comité de Torreón entrega los suyos.</p>
+        <div class="docs" id="docs-list"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== COMITÉ ===================== -->
+<section class="view" data-view="comite" id="v-comite" hidden>
+  <div class="pagehead">
+    <div class="wrap">
+      <h1 class="disp">Comité municipal</h1>
+      <p>Las personas que integran formalmente el comité de SOMOS en Torreón, Coahuila.</p>
+    </div>
+  </div>
+  <div class="sec">
+    <div class="wrap" id="committee-groups"></div>
+  </div>
+</section>
+
+<!-- ===================== NOTICIAS ===================== -->
+<section class="view" data-view="noticias" id="v-noticias" hidden>
+  <div class="sec" style="padding-top:clamp(28px,5vw,56px)">
+    <div class="wrap" id="news-root"></div>
+  </div>
+</section>
+
+<!-- ===================== ACTIVIDADES ===================== -->
+<section class="view" data-view="actividades" id="v-actividades" hidden>
+  <div class="pagehead">
+    <div class="wrap">
+      <h1 class="disp">Actividades</h1>
+      <p>Lo que hacemos en Torreón: jornadas, reuniones y encuentros, registrados mes a mes.</p>
+    </div>
+  </div>
+  <div class="sec">
+    <div class="wrap" id="activities-root"></div>
+  </div>
+</section>
+
+<!-- ===================== SOMOS IMPACTO ===================== -->
+<section class="view" data-view="somos-impacto" id="v-impacto" hidden>
+  <div class="pagehead pagehead--ink">
+    <div class="wrap">
+      <div class="impacto-hero">
+        <div>
+          <span class="eyebrow" style="color:var(--soft)">La política del futuro</span>
+          <h1 class="disp" style="margin-top:10px">SOMOS Impacto</h1>
+          <p>El espacio de las juventudes de SOMOS en Torreón.</p>
+          <div class="chips" id="imp-chips">
+            <button class="chip" data-scroll="i-pres">Presentación</button>
+            <button class="chip" data-scroll="i-equipo">Equipo juvenil</button>
+            <button class="chip" data-scroll="i-proyectos">Proyectos</button>
+            <button class="chip" data-scroll="i-actividades">Actividades</button>
+            <button class="chip" data-scroll="i-galeria">Galería</button>
+            <button class="chip" data-scroll="i-conv">Convocatorias</button>
+          </div>
+        </div>
+        <img data-logo="imp" alt="SOMOS Impacto Coahuila, la política del futuro" width="320" height="320">
+      </div>
+    </div>
+  </div>
+  <div class="sec">
+    <div class="wrap">
+      <div class="block" id="i-pres">
+        <span class="eyebrow">Presentación</span>
+        <h2 class="disp" style="margin-top:10px">Qué es SOMOS Impacto</h2>
+        <p class="lede">Un espacio para que las y los jóvenes de Torreón propongan, se organicen y le den rumbo a su ciudad.</p>
+        <div class="prose muted" style="margin-top:18px"><p>Aquí va la presentación oficial del programa: a quién está dirigido, cómo se participa y qué busca lograr.</p></div>
+        <div class="btns" style="margin-top:24px"><a class="btn btn--brand" href="https://registro.somosmx.org.mx/unete.php" target="_blank" rel="noopener"><span>Quiero sumarme</span></a></div>
+      </div>
+
+      <div class="block" id="i-equipo">
+        <h2 class="disp">Equipo juvenil</h2>
+        <figure class="team-photo"><img data-logo="team" alt="Integrantes de SOMOS Impacto Coahuila con su manta" width="1600" height="813"><figcaption>Equipo juvenil de SOMOS Impacto Coahuila.</figcaption></figure>
+      </div>
+
+      <div class="block" id="i-proyectos">
+        <h2 class="disp">Proyectos</h2>
+        <div class="grid g3" id="projects"></div>
+      </div>
+
+      <div class="block" id="i-actividades">
+        <h2 class="disp">Actividades</h2>
+        <div class="grid g3" id="impacto-acts"></div>
+      </div>
+
+      <div class="block" id="i-galeria">
+        <h2 class="disp">Galería</h2>
+        <div class="gallery" id="gallery"></div>
+      </div>
+
+      <div class="block" id="i-conv">
+        <h2 class="disp">Convocatorias</h2>
+        <div id="convs"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <div>
+      <img data-logo="mx" alt="SOMOS" width="180" height="34">
+      <p><b>Comité Municipal de Torreón</b><br>Torreón, Coahuila</p>
+      <p style="margin-top:12px;opacity:.8">La fuerza que nos une.</p>
+    </div>
+    <div>
+      <h4>Navegación</h4>
+      <ul>
+        <li><a href="#inicio">Inicio</a></li>
+        <li><a href="#nosotros">Nosotros</a></li>
+        <li><a href="#comite">Comité</a></li>
+        <li><a href="#noticias">Noticias</a></li>
+        <li><a href="#actividades">Actividades</a></li>
+        <li><a href="#somos-impacto">SOMOS Impacto</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Participa</h4>
+      <ul>
+        <li><a href="https://registro.somosmx.org.mx/unete.php" target="_blank" rel="noopener">Súmate a SOMOS ↗</a></li>
+        <li><a href="https://somosmx.org.mx/contacto/" target="_blank" rel="noopener">Contacto nacional ↗</a></li>
+        <li><a href="https://somosmx.org.mx/aviso-de-privacidad/" target="_blank" rel="noopener">Aviso de privacidad ↗</a></li>
+      </ul>
+    </div>
+    <div class="legal"><span>© 2026 SOMOS Torreón. Todos los derechos reservados.</span><span>Sitio en construcción</span></div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var LOGOS={mx:"img/somos-blanco.png",imp:"img/somos-impacto.png",map:"img/somos-mapa.png",team:"img/equipo-juvenil.jpg"};
+  document.querySelectorAll('img[data-logo]').forEach(function(i){i.src=LOGOS[i.dataset.logo];});
+
+  /* ---------- Datos (editar aquí) ---------- */
+  var COUNTDOWN_TO=new Date('2027-06-06T00:00:00-06:00');
+
+  var MEMBERS=[
+    {n:'Leticia Carlos Silva',c:'Presidente',g:'dir'},
+    {n:'Luis Eduardo Hernández Arellano',c:'Secretario General',g:'dir'},
+    {n:'Dora Otilia Rivera Reyna',c:'Organización y Desarrollo Institucional',g:'com'},
+    {n:'Rafael Leyva Martínez',c:'Operación Electoral y Alianzas',g:'com'},
+    {n:'Camila Castañeda Galiano',c:'Comunicación',g:'com'},
+    {n:'Rosa Velia Gómez Ibarra',c:'Administración y Finanzas',g:'com'},
+    {n:'Martha Guadalupe Ortiz Polanco',c:'Equidad',g:'com'},
+    {n:'Flavio Alberto Verdeja Medinilla',c:'Juventudes',g:'com'},
+    {n:'Enrique Valdez Salmón',c:'Del campo',g:'com'},
+    {n:'Luis Ángel Lugo Hernández',c:'Para la inclusión',g:'com'},
+    {n:'Hernán José González Rubio',c:'Para sectores productivos',g:'com'},
+    {n:'Blanca Patricia Carranza González',c:'Asambleísta estatal ante el municipio',g:'asm'},
+    {n:'Luis Carlos Vargas Aguirre',c:'Asambleísta estatal ante el municipio',g:'asm'}
+  ];
+
+  /* Las noticias se cargan de content/noticias.json, que se edita desde el panel de Pages CMS.
+     Campos: titulo, imagen, categoria, fecha, resumen, contenido (párrafos separados por una línea en blanco) y autor. */
+  var NEWS=[];
+  function esc(s){return String(s==null?'':s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});}
+  function normNews(list){
+    return (Array.isArray(list)?list:[]).filter(function(n){return n&&n.titulo&&n.fecha;}).map(function(n){
+      var body=Array.isArray(n.contenido)?n.contenido:String(n.contenido||'').split(/\n\s*\n/);
+      return {titulo:esc(n.titulo),imagen:n.imagen?esc(n.imagen):'',categoria:esc(n.categoria||'General'),fecha:String(n.fecha).slice(0,10),
+        resumen:esc(n.resumen),contenido:body.map(function(p){return esc(String(p).trim()).replace(/\n/g,'<br>');}).filter(Boolean),
+        autor:esc(n.autor||'SOMOS Torreón'),ejemplo:!!n.ejemplo};
+    }).sort(function(a,b){return a.fecha<b.fecha?1:-1;}).map(function(n,i){n.id='n'+i;return n;});
+  }
+  var EVENTS=[
+    {date:'2026-11-28',t:'Reunión vecinal',p:'Lugar y hora por confirmar'},
+    {date:'2026-12-05',t:'Encuentro ciudadano',p:'Lugar y hora por confirmar'},
+    {date:'2026-12-12',t:'Jornada de limpieza',p:'Lugar y hora por confirmar'}
+  ];
+  var ACTS=[
+    {date:'2026-11-15',t:'Jornada comunitaria',tags:['Jornada comunitaria'],d:'Descripción breve de la actividad: qué se hizo, con quién y qué se logró.',tone:'pink'},
+    {date:'2026-11-09',t:'Reunión vecinal',tags:['Reunión vecinal'],d:'Descripción breve de la actividad: qué se habló y qué acuerdos salieron.',tone:'ink'},
+    {date:'2026-11-02',t:'Actividad de SOMOS Impacto',tags:['SOMOS Impacto'],d:'Descripción breve de la actividad del equipo juvenil.',tone:'soft',imp:true},
+    {date:'2026-10-26',t:'Campaña de limpieza',tags:['Campaña de limpieza'],d:'Descripción breve de la actividad y de quienes participaron.',tone:'soft'},
+    {date:'2026-10-18',t:'Entrega de apoyos',tags:['Entrega de apoyos'],d:'Descripción breve de la actividad y de las familias beneficiadas.',tone:'pink'},
+    {date:'2026-10-10',t:'Encuentro ciudadano',tags:['Encuentro ciudadano'],d:'Descripción breve de la actividad: tema, asistentes y conclusiones.',tone:'ink',imp:true}
+  ];
+  var PROJECTS=[
+    {t:'Nombre del proyecto',d:'Descripción breve del proyecto juvenil: qué busca, quién participa y cómo sumarse.'},
+    {t:'Nombre del proyecto',d:'Descripción breve del proyecto juvenil: qué busca, quién participa y cómo sumarse.'},
+    {t:'Nombre del proyecto',d:'Descripción breve del proyecto juvenil: qué busca, quién participa y cómo sumarse.'}
+  ];
+  var CONVS=[
+    {t:'Convocatoria para sumarte al equipo juvenil',p:'Fecha límite por definir',s:'Abierta'},
+    {t:'Convocatoria para proponer proyectos',p:'Fecha límite por definir',s:'Abierta'},
+    {t:'Próximo encuentro de jóvenes',p:'Fechas por definir',s:'Próxima'}
+  ];
+  var DOCS=[
+    {t:'Documentos básicos',d:'Declaración de principios, programa de acción y estatutos.',u:'https://somosmx.org.mx/documentos-basicos/'},
+    {t:'Estatutos',d:'Las reglas que organizan al partido. Documento oficial en PDF.',u:'https://somosmx.org.mx/wp-content/uploads/2026/02/estatutos-cambios.pdf'},
+    {t:'Código de ética',d:'Las normas de conducta de quienes integran SOMOS. Documento oficial en PDF.',u:'https://somosmx.org.mx/wp-content/uploads/2026/07/Codigo-de-etica-Somos-Mexico.pdf'},
+    {t:'Nuestras causas',d:'Las causas que impulsa SOMOS.',u:'https://somosmx.org.mx/nuestras-causas/'},
+    {t:'Posicionamientos',d:'Posturas públicas del partido.',u:'https://somosmx.org.mx/medios/posicionamientos/'},
+    {t:'Aviso de privacidad',d:'Cómo se tratan los datos personales.',u:'https://somosmx.org.mx/aviso-de-privacidad/'}
+  ];
+  var SOCIAL=[
+    {t:'Instagram',u:'https://www.instagram.com/somosmxmexico/'},
+    {t:'Facebook',u:'https://www.facebook.com/SomosMXMexico'},
+    {t:'X',u:'https://x.com/somosmxmexico'},
+    {t:'TikTok',u:'https://www.tiktok.com/@somos_mx'}
+  ];
+
+  /* ---------- Utilidades ---------- */
+  var MESES=['ene','feb','mar','abr','may','jun','jul','ago','sep','oct','nov','dic'];
+  function dt(s){return new Date(s+'T12:00:00');}
+  function short(s){var d=dt(s);return d.getDate()+' '+MESES[d.getMonth()]+' '+d.getFullYear();}
+  function longMonth(s){var t=dt(s).toLocaleDateString('es-MX',{month:'long',year:'numeric'});return t.charAt(0).toUpperCase()+t.slice(1);}
+  function initials(n){var w=n.split(' ');return (w[0][0]+(w.length>2?w[w.length-2][0]:w[1][0])).toUpperCase();}
+  function $(id){return document.getElementById(id);}
+  function ext(u){return 'href="'+u+'" target="_blank" rel="noopener"';}
+
+  /* ---------- Plantillas ---------- */
+  function tone(n){return {Institucional:'ink',Social:'pink',Juvenil:'soft'}[n.categoria]||'pink';}
+  function media(n){return n.imagen?'<img class="nimg" src="'+n.imagen+'" alt="" loading="lazy">':'<div class="ph ph--'+tone(n)+'" data-label="Imagen de la nota"></div>';}
+  function nmeta(n,top){return '<div class="nmeta"'+(top?' style="margin-top:0"':'')+'><span class="cat">'+n.categoria+'</span><time datetime="'+n.fecha+'">'+short(n.fecha)+'</time>'+(n.ejemplo?'<span class="tag">Ejemplo</span>':'')+'</div>';}
+  function newsCard(n){
+    return '<a class="ncard" href="#noticias" data-article="'+n.id+'">'+media(n)+nmeta(n)+
+      '<h3>'+n.titulo+'</h3><p>'+n.resumen+'</p><span class="author">Por '+n.autor+'</span></a>';
+  }
+  function member(m,lead){
+    return '<article class="member'+(lead?' member--lead':'')+'"><div class="ph ph--'+(lead?'ink':'pink')+'" role="img" aria-label="Espacio para la fotografía de '+m.n+'"><b>'+initials(m.n)+'</b></div>'+
+      '<div><h3>'+m.n+'</h3><p class="role">'+m.c+'</p></div></article>';
+  }
+  function actCard(a){
+    return '<article class="acard"><div class="ph ph--'+a.tone+'" data-label="Fotografía de la actividad"></div>'+
+      '<div class="when"><b>'+short(a.date)+'</b><span>Torreón, Coahuila</span><span class="tag">Ejemplo</span></div>'+
+      '<h3>'+a.t+'</h3><p>'+a.d+'</p><div class="tags">'+a.tags.map(function(t){return '<span class="tag tag--ink">'+t+'</span>';}).join('')+'</div></article>';
+  }
+
+  /* ---------- Render de bloques ---------- */
+  function renderHomeNews(){$('home-news').innerHTML=NEWS.length?NEWS.slice(0,3).map(newsCard).join(''):'<p class="muted">Pronto publicaremos las primeras noticias.</p>';}
+  renderHomeNews();
+  $('home-events').innerHTML=EVENTS.map(function(e){
+    var d=dt(e.date);
+    return '<div class="event"><div class="date"><div><b>'+d.getDate()+'</b><span>'+MESES[d.getMonth()]+'</span></div></div><div><h3>'+e.t+'</h3><p>'+e.p+'</p></div><span class="tag">Ejemplo</span></div>';
+  }).join('');
+  $('member-count').textContent=MEMBERS.length;
+  $('home-members').innerHTML=MEMBERS.slice(0,2).map(function(m){return member(m,false);}).join('');
+  $('social-home').innerHTML=SOCIAL.map(function(s){return '<a '+ext(s.u)+'>'+s.t+' ↗</a>';}).join('');
+  $('docs-list').innerHTML=DOCS.map(function(d){return '<a class="doc" '+ext(d.u)+'><div><h3>'+d.t+'</h3><p>'+d.d+'</p></div><span class="more">Abrir ↗</span></a>';}).join('');
+
+  $('committee-groups').innerHTML=
+    '<div class="group"><h2 class="disp">Presidencia y secretaría</h2><div class="cols-2 keep">'+MEMBERS.filter(function(m){return m.g==='dir';}).map(function(m){return member(m,true);}).join('')+'</div></div>'+
+    '<div class="group"><h2 class="disp">Integrantes</h2><div class="cols-3">'+MEMBERS.filter(function(m){return m.g==='com';}).map(function(m){return member(m,false);}).join('')+'</div></div>'+
+    '<div class="group"><h2 class="disp">Asambleístas estatales</h2><div class="cols-3">'+MEMBERS.filter(function(m){return m.g==='asm';}).map(function(m){return member(m,false);}).join('')+'</div></div>';
+
+  (function activities(){
+    var months={};ACTS.slice().sort(function(a,b){return a.date<b.date?1:-1;}).forEach(function(a){var k=a.date.slice(0,7);(months[k]=months[k]||[]).push(a);});
+    $('activities-root').innerHTML=Object.keys(months).sort().reverse().map(function(k){
+      return '<div class="month"><h2>'+longMonth(k+'-01')+'</h2><div class="grid g3">'+months[k].map(actCard).join('')+'</div></div>';
+    }).join('');
+    $('impacto-acts').innerHTML=ACTS.filter(function(a){return a.imp;}).concat(ACTS.filter(function(a){return !a.imp;}).slice(0,1)).map(actCard).join('');
+  })();
+
+  $('projects').innerHTML=PROJECTS.map(function(p,i){return '<article class="proj"><span class="tag" style="justify-self:start">Ejemplo</span><h3>'+p.t+'</h3><p>'+p.d+'</p></article>';}).join('');
+  $('gallery').innerHTML=['pink','ink','soft','pink','soft','ink','pink','soft'].map(function(t,i){return '<div class="ph ph--'+t+'" role="img" aria-label="Espacio para foto de la galería" data-label="Foto '+(i+1)+'"></div>';}).join('');
+  $('convs').innerHTML=CONVS.map(function(c){
+    return '<div class="conv"><span class="status'+(c.s==='Próxima'?' status--next':'')+'">'+c.s+'</span><div><h3>'+c.t+' <span class="tag">Ejemplo</span></h3><p>'+c.p+'</p></div><a class="btn btn--ink btn--sm" href="#somos-impacto"><span>Ver bases</span></a></div>';
+  }).join('');
+
+  /* ---------- Noticias (periódico) ---------- */
+  var newsFilter='Todas';
+  function renderNews(articleId){
+    var root=$('news-root');
+    var n=articleId?NEWS.filter(function(x){return x.id===articleId;})[0]:null;
+    if(n){
+      var largo=dt(n.fecha).toLocaleDateString('es-MX',{day:'numeric',month:'long',year:'numeric'});
+      root.innerHTML='<article class="reader"><button class="back" id="news-back">← Volver a noticias</button>'+nmeta(n,true)+
+        '<h1>'+n.titulo+'</h1><p class="byline">Por <b>'+n.autor+'</b> · '+largo+'</p>'+media(n)+
+        '<p class="summary">'+n.resumen+'</p><div class="body">'+n.contenido.map(function(p){return '<p>'+p+'</p>';}).join('')+'</div></article>';
+      $('news-back').onclick=function(){renderNews(null);window.scrollTo(0,0);};
+      return;
+    }
+    var cats=['Todas'].concat(NEWS.map(function(n){return n.categoria;}).filter(function(c,i,a){return a.indexOf(c)===i;}));
+    var list=NEWS.filter(function(n){return newsFilter==='Todas'||n.categoria===newsFilter;});
+    var lead=list[0],rest=list.slice(1);
+    var today=new Date().toLocaleDateString('es-MX',{weekday:'long',day:'numeric',month:'long',year:'numeric'});
+    root.innerHTML='<div class="paper-head"><div><span class="eyebrow">El periódico digital de SOMOS Torreón</span><h1 class="disp" style="margin-top:8px">Noticias</h1></div><p class="date-line">'+today+'</p></div>'+
+      '<div class="filters" role="group" aria-label="Filtrar por categoría">'+cats.map(function(c){return '<button class="chip" data-cat="'+c+'" aria-pressed="'+(c===newsFilter)+'">'+c+'</button>';}).join('')+'</div>'+
+      (lead?'<a class="ncard lead-story" href="#noticias" data-article="'+lead.id+'">'+media(lead)+'<div>'+nmeta(lead,true)+'<h2>'+lead.titulo+'</h2><p>'+lead.resumen+'</p><span class="author">Por '+lead.autor+'</span></div></a>':'')+
+      (list.length?'':'<p class="muted">Aún no hay noticias publicadas.</p>')+'<div class="grid g3">'+rest.map(newsCard).join('')+'</div>';
+    root.querySelectorAll('[data-cat]').forEach(function(b){b.onclick=function(){newsFilter=b.dataset.cat;renderNews(null);armReveal($('news-root'));};});
+  }
+
+  document.addEventListener('pointermove',function(e){
+    var c=e.target.closest&&e.target.closest('.ncard,.proj');if(!c)return;
+    var r=c.getBoundingClientRect();c.style.setProperty('--mx',(e.clientX-r.left)+'px');c.style.setProperty('--my',(e.clientY-r.top)+'px');
+  },{passive:true});
+
+  /* ---------- Aparición suave al bajar ----------
+     Solo se ocultan elementos que están debajo de la pantalla al cargar; lo visible nunca se oculta. */
+  var io=null;
+  var RV='.shead,.ncard,.event,.member,.acard,.value,.proj,.conv,.doc,.month>h2,.committee-intro>div,.impacto-banner .wrap>*,.social,.gallery .ph,.team-photo,.mv .box,.ident figure,.block>h2,.block>.lede,.block>.prose,.block>p,.block>.btn,.block>.btns,.group>h2,.swatches,.foot .wrap>div';
+  if('IntersectionObserver' in window&&!(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches)){
+    io=new IntersectionObserver(function(es){es.forEach(function(e){
+      if(!e.isIntersecting)return;var el=e.target;io.unobserve(el);el.classList.add('in');
+      setTimeout(function(){el.classList.remove('rv','in');el.style.transitionDelay='';},1100);
+    });},{rootMargin:'0px 0px -6% 0px',threshold:.06});
+  }
+  function armReveal(scope){
+    if(!io||!scope)return;
+    var vh=window.innerHeight;
+    scope.querySelectorAll(RV).forEach(function(el){
+      if(el.dataset.rv)return;el.dataset.rv='1';
+      if(el.getBoundingClientRect().top<vh*.92)return;
+      var sib=[].indexOf.call(el.parentNode.children,el);
+      el.style.transitionDelay=(sib%3)*80+'ms';
+      el.classList.add('rv');io.observe(el);
+    });
+  }
+
+  /* ---------- Rutas (hash simple) ---------- */
+  var VIEWS=['inicio','nosotros','comite','noticias','actividades','somos-impacto'];
+  var pendingArticle=null;
+  function closeMenu(){$('nav').classList.remove('open');$('burger').setAttribute('aria-expanded','false');$('burger').textContent='Menú';}
+  function route(){
+    var h=location.hash.replace('#','');
+    if(VIEWS.indexOf(h)<0)h='inicio';
+    document.querySelectorAll('.view').forEach(function(v){v.hidden=v.dataset.view!==h;});
+    document.querySelectorAll('[data-nav]').forEach(function(a){if(a.dataset.nav===h)a.setAttribute('aria-current','page');else a.removeAttribute('aria-current');});
+    if(h==='noticias'){renderNews(pendingArticle);pendingArticle=null;}
+    closeMenu();window.scrollTo(0,0);
+    armReveal(document.querySelector('.view[data-view="'+h+'"]'));armReveal(document.querySelector('.foot'));
+  }
+  window.addEventListener('hashchange',route);
+  document.addEventListener('click',function(e){
+    var a=e.target.closest('[data-article]');
+    if(a){
+      e.preventDefault();pendingArticle=a.dataset.article;
+      if(location.hash==='#noticias'){renderNews(pendingArticle);pendingArticle=null;window.scrollTo(0,0);}
+      else location.hash='noticias';
+      return;
+    }
+    var s=e.target.closest('[data-scroll]');
+    if(s){var el=$(s.dataset.scroll);if(el){var hdr=document.querySelector('.hdr').offsetHeight;window.scrollTo({top:el.getBoundingClientRect().top+window.scrollY-hdr-12});}}
+  });
+  $('burger').addEventListener('click',function(){var o=$('nav').classList.toggle('open');this.setAttribute('aria-expanded',o);this.textContent=o?'Cerrar':'Menú';});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&$('nav').classList.contains('open'))closeMenu();});
+  route();
+  fetch('content/noticias.json',{cache:'no-cache'}).then(function(r){if(!r.ok)throw new Error(r.status);return r.json();})
+    .then(function(d){NEWS=normNews(d);}).catch(function(){NEWS=[];})
+    .then(function(){renderHomeNews();if(location.hash==='#noticias')renderNews(null);armReveal(document.querySelector('.view:not([hidden])'));});
+
+  /* ---------- Bienvenida (una vez por sesión; los enlaces directos a una sección la saltan) ---------- */
+  (function welcome(){
+    var w=$('welcome'),root=document.documentElement;
+    var seen=false;try{seen=sessionStorage.getItem('somos-bienvenida')==='1';}catch(e){}
+    var h=location.hash.replace('#','');
+    var deep=h&&h!=='inicio'&&VIEWS.indexOf(h)>=0;
+    var parts=[document.querySelector('.draft'),document.querySelector('.hdr'),document.querySelector('main'),document.querySelector('.foot')];
+    function setInert(v){parts.forEach(function(p){if(p){if(v)p.setAttribute('inert','');else p.removeAttribute('inert');}});}
+    if(seen||deep){w.hidden=true;return;}
+    w.hidden=false;root.classList.add('locked');setInert(true);
+    var go=$('welcome-go');go.focus();
+    function close(){
+      try{sessionStorage.setItem('somos-bienvenida','1');}catch(e){}
+      w.classList.add('out');root.classList.remove('locked');setInert(false);window.scrollTo(0,0);
+      setTimeout(function(){w.hidden=true;},400);
+      document.removeEventListener('keydown',onKey);
+    }
+    function onKey(e){if(e.key==='Escape')close();}
+    go.addEventListener('click',close);document.addEventListener('keydown',onKey);
+  })();
+
+  /* ---------- Cuenta regresiva ---------- */
+  function pad(n,l){return String(n).padStart(l,'0');}
+  function tick(){
+    var ms=Math.max(0,COUNTDOWN_TO-Date.now());
+    $('cd-d').textContent=pad(Math.floor(ms/864e5),3);
+    $('cd-h').textContent=pad(Math.floor(ms%864e5/36e5),2);
+    $('cd-m').textContent=pad(Math.floor(ms%36e5/6e4),2);
+    $('cd-s').textContent=pad(Math.floor(ms%6e4/1e3),2);
+  }
+  tick();setInterval(tick,1000);
+})();
+</script>
+
+</body>
+</html>

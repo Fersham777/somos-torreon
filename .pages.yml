@@ -1,0 +1,54 @@
+# Configuración del panel de noticias (Pages CMS)
+media:
+  input: media
+  output: /media
+  categories: [image]
+
+content:
+  - name: noticias
+    label: Noticias
+    type: file
+    path: content/noticias.json
+    format: json
+    list: true
+    fields:
+      - name: titulo
+        label: Título
+        type: string
+        required: true
+        description: Nombre de la noticia.
+      - name: imagen
+        label: Imagen
+        type: image
+        description: Fotografía principal de la noticia.
+      - name: categoria
+        label: Categoría
+        type: select
+        required: true
+        options:
+          values: [Institucional, Social, Juvenil]
+      - name: fecha
+        label: Fecha de publicación
+        type: date
+        required: true
+        options:
+          format: yyyy-MM-dd
+      - name: resumen
+        label: Resumen
+        type: text
+        required: true
+        description: Descripción breve, de dos o tres líneas.
+      - name: contenido
+        label: Contenido
+        type: text
+        required: true
+        description: Desarrollo completo. Separa cada párrafo con una línea en blanco.
+      - name: autor
+        label: Autor
+        type: string
+        required: true
+        description: Responsable de la publicación.
+      - name: ejemplo
+        label: ¿Es noticia de ejemplo?
+        type: boolean
+        description: Déjalo apagado en las noticias reales. Las de ejemplo muestran la etiqueta "Ejemplo".
