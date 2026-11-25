@@ -41,6 +41,9 @@ Sitio del Comité Municipal de SOMOS en Torreón, Coahuila. Las noticias se edit
 
 Para corregir o borrar una noticia, ábrela en el panel, cámbiala o elimínala y guarda.
 
-## Antes de hacer pública la página
-- Borrar las seis noticias de ejemplo (traen la etiqueta "Ejemplo").
-- Quitar el aviso de "Borrador de diseño" de la parte superior.
+## Secciones que se editan desde el panel
+- **Noticias**: la página muestra las más recientes y un botón "Ver más noticias".
+- **Actividades (Torreón)**: se agrupan solas por mes.
+- **Actividades SOMOS Impacto**: se ven las 3 más recientes; las anteriores quedan en "Ver actividades anteriores".
+- **Próximos eventos**: si no tiene fecha dice "Fechas por definir"; los eventos pasados se ocultan solos.
+- **Galería SOMOS Impacto**: las fotos agregadas al final salen primero; con muchas fotos aparece "Ver más fotos".
