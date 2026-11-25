@@ -318,8 +318,8 @@ h3{font-family:var(--display);font-weight:750;font-stretch:100%;font-size:1.15re
 .welcome{overflow-y:auto}
 .welcome-in{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:clamp(28px,6vw,80px)}
 .welcome-text{min-width:0}
-.welcome-logo{width:clamp(200px,30vw,360px);height:auto;filter:drop-shadow(0 18px 40px rgba(32,32,39,.45))}
-@media (max-width:760px){.welcome-in{grid-template-columns:minmax(0,1fr);gap:24px}.welcome-logo{order:-1;width:clamp(130px,40vw,180px)}}
+.welcome-logo{width:clamp(240px,34vw,440px);height:auto;filter:drop-shadow(0 18px 40px rgba(32,32,39,.45))}
+@media (max-width:760px){.welcome-in{grid-template-columns:minmax(0,1fr);gap:24px}.welcome-logo{order:-1;width:min(260px,70vw)}}
 .welcome .tagline{display:inline-block;background:var(--soft);color:var(--brand-text);font-size:.76rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:7px 14px;border-radius:999px;margin-bottom:22px}
 .welcome h1{font-size:clamp(3.2rem,14vw,8.5rem);line-height:.95}
 .welcome h1 span{display:block}
@@ -354,9 +354,9 @@ html.locked,html.locked body{overflow:hidden}
 .split{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:clamp(28px,5vw,64px);align-items:center}
 .split-text{min-width:0}
 .split-img{display:block;width:100%;height:auto;border-radius:20px}
-.split-img--logo{max-width:360px;justify-self:end}
+.split-img--logo{max-width:420px;justify-self:end;border:1px solid var(--line);box-shadow:0 12px 30px rgba(201,43,118,.14)}
 .split-img--tall{aspect-ratio:1/1;object-fit:cover;object-position:50% 12%}
-@media (max-width:760px){.split{grid-template-columns:minmax(0,1fr)}.split-img--logo{max-width:220px;justify-self:start}.split-img--tall{aspect-ratio:4/3;max-height:none}}
+@media (max-width:760px){.split{grid-template-columns:minmax(0,1fr)}.split-img--logo{max-width:300px;justify-self:start}.split-img--tall{aspect-ratio:4/3;max-height:none}}
 @media (hover:hover){.hero-img,.split-img{transition:box-shadow .35s ease}.hero-img:hover,.split-img:hover{box-shadow:0 0 0 2px rgba(201,43,118,.55),0 14px 36px rgba(201,43,118,.35)}}
 .rv{opacity:0;transform:translateY(22px)}
 
@@ -474,7 +474,7 @@ html.locked,html.locked body{overflow:hidden}
       <p>La fuerza que nos une.</p>
       <button class="btn btn--brand" id="welcome-go" type="button"><span>Continuar →</span></button>
     </div>
-    <img class="welcome-logo" data-logo="map" alt="SOMOS" width="360" height="360">
+    <img class="welcome-logo" data-logo="map" alt="SOMOS, la fuerza que nos une" width="1100" height="517">
   </div>
 </div>
 
@@ -618,7 +618,7 @@ html.locked,html.locked body{overflow:hidden}
           <p>No somos un movimiento tradicional: somos quienes ya no quieren esperar, sino actuar. En Torreón, el comité municipal acerca esa forma de hacer política a las colonias, los barrios y las escuelas de la ciudad.</p>
         </div>
         </div>
-        <img class="split-img split-img--logo" data-logo="somosmx" alt="Logotipo de SOMOS MX" width="500" height="500">
+        <img class="split-img split-img--logo" data-logo="somosmx" alt="SOMOS, la fuerza que nos une" width="1100" height="517">
       </div>
 
       <div class="block" id="n-historia">
