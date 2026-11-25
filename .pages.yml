@@ -52,3 +52,113 @@ content:
         label: ¿Es noticia de ejemplo?
         type: boolean
         description: Déjalo apagado en las noticias reales. Las de ejemplo muestran la etiqueta "Ejemplo".
+
+  - name: actividades
+    label: Actividades (Torreón)
+    type: file
+    path: content/actividades.json
+    format: json
+    list: true
+    fields:
+      - name: titulo
+        label: Título
+        type: string
+        required: true
+      - name: fecha
+        label: Fecha
+        type: date
+        required: true
+        options:
+          format: yyyy-MM-dd
+      - name: lugar
+        label: Lugar
+        type: string
+        required: true
+        description: Por ejemplo, Torreón, Coahuila.
+      - name: descripcion
+        label: Descripción
+        type: text
+        required: true
+        description: Qué se hizo, con quién y qué se logró, en dos o tres líneas.
+      - name: imagen
+        label: Foto
+        type: image
+      - name: etiqueta
+        label: Etiqueta (opcional)
+        type: string
+        description: Por ejemplo, Jornada comunitaria o Reunión vecinal.
+
+  - name: actividades-impacto
+    label: Actividades SOMOS Impacto
+    type: file
+    path: content/actividades-impacto.json
+    format: json
+    list: true
+    fields:
+      - name: titulo
+        label: Título
+        type: string
+        required: true
+      - name: fecha
+        label: Fecha
+        type: date
+        required: true
+        options:
+          format: yyyy-MM-dd
+      - name: lugar
+        label: Lugar
+        type: string
+        required: true
+        description: Por ejemplo, Torreón, Coahuila.
+      - name: descripcion
+        label: Descripción
+        type: text
+        required: true
+        description: Qué se hizo, con quién y qué se logró, en dos o tres líneas.
+      - name: imagen
+        label: Foto
+        type: image
+
+  - name: eventos
+    label: Próximos eventos
+    type: file
+    path: content/eventos.json
+    format: json
+    list: true
+    fields:
+      - name: titulo
+        label: Título
+        type: string
+        required: true
+      - name: fecha
+        label: Fecha
+        type: date
+        description: Déjala vacía si todavía no hay fecha; se mostrará "Fechas por definir". Los eventos con fecha pasada se ocultan solos.
+        options:
+          format: yyyy-MM-dd
+      - name: hora
+        label: Hora (opcional)
+        type: string
+        description: Por ejemplo, 6:00 pm.
+      - name: lugar
+        label: Lugar
+        type: string
+      - name: descripcion
+        label: Descripción (opcional)
+        type: text
+
+  - name: galeria
+    label: Galería SOMOS Impacto
+    type: file
+    path: content/galeria.json
+    format: json
+    list: true
+    fields:
+      - name: imagen
+        label: Foto
+        type: image
+        required: true
+      - name: descripcion
+        label: Descripción de la foto
+        type: string
+        description: Qué se ve en la foto. Las fotos agregadas al final aparecen primero en la página.

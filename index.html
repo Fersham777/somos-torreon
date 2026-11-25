@@ -267,7 +267,7 @@ h3{font-family:var(--display);font-weight:750;font-stretch:100%;font-size:1.15re
 .impacto-hero{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:40px;align-items:center}
 .impacto-hero img{width:clamp(180px,26vw,320px);height:auto}
 @media (max-width:760px){.impacto-hero{grid-template-columns:minmax(0,1fr)}.impacto-hero img{width:180px;order:-1}}
-.gallery{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
+.gallery{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));grid-auto-flow:dense;gap:14px}
 .gallery .ph{aspect-ratio:1/1}
 .gallery .ph:nth-child(1),.gallery .ph:nth-child(6){grid-column:span 2;grid-row:span 2}
 @media (max-width:700px){.gallery{grid-template-columns:repeat(2,minmax(0,1fr))}}
@@ -292,8 +292,6 @@ h3{font-family:var(--display);font-weight:750;font-stretch:100%;font-size:1.15re
 
 /* Redes */
 .social{display:flex;flex-wrap:wrap;gap:12px}
-.social a{border:2px solid var(--fg);border-radius:10px;padding:12px 20px;font-weight:800;text-decoration:none}
-.social a:hover{background:var(--ink);border-color:var(--ink);color:#fff}
 
 /* Pie */
 .foot{background:var(--ink);color:#fff;font-size:.9rem}
@@ -338,7 +336,7 @@ html.locked,html.locked body{overflow:hidden}
   .ncard:not(.lead-story):hover,.proj:hover{border-color:rgba(201,43,118,.5);box-shadow:0 0 0 1px rgba(201,43,118,.45),0 12px 34px rgba(201,43,118,.28),0 0 22px rgba(201,43,118,.22)}
   .member:hover .ph,.acard:hover .ph,.lead-story:hover .ph,.gallery .ph:hover{box-shadow:0 0 0 2px rgba(201,43,118,.55),0 12px 32px rgba(201,43,118,.35)}
   .event:hover .date{box-shadow:0 0 0 3px rgba(201,43,118,.18),0 8px 22px rgba(201,43,118,.45)}
-  .social a:hover{background:var(--brand);border-color:var(--brand);color:#fff;box-shadow:0 8px 24px rgba(201,43,118,.45)}
+  .soc:hover{border-color:rgba(201,43,118,.5);transform:translateY(-3px);box-shadow:0 0 0 1px rgba(201,43,118,.4),0 12px 30px rgba(201,43,118,.28)}
   .chip:hover{box-shadow:0 0 16px rgba(201,43,118,.55)}
   .more:hover,.doc:hover h3{text-shadow:0 0 14px rgba(201,43,118,.45)}
   .nav a:hover{text-shadow:0 0 12px rgba(255,255,255,.85)}
@@ -351,7 +349,111 @@ html.locked,html.locked body{overflow:hidden}
 .team-photo img{display:block;width:100%;height:auto;border-radius:16px}
 .team-photo figcaption{margin-top:12px;color:var(--muted);font-size:.92rem}
 @media (hover:hover){.team-photo img{transition:box-shadow .35s ease}.team-photo:hover img{box-shadow:0 0 0 2px rgba(201,43,118,.55),0 14px 36px rgba(201,43,118,.35)}}
+.hero-img{display:block;justify-self:center;width:auto;max-width:100%;height:auto;max-height:640px;border-radius:20px;box-shadow:0 18px 40px rgba(201,43,118,.18)}
+@media (max-width:860px){.hero-img{width:100%;max-height:none}}
+.split{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:clamp(28px,5vw,64px);align-items:center}
+.split-text{min-width:0}
+.split-img{display:block;width:100%;height:auto;border-radius:20px}
+.split-img--logo{max-width:360px;justify-self:end}
+.split-img--tall{aspect-ratio:1/1;object-fit:cover;object-position:50% 12%}
+@media (max-width:760px){.split{grid-template-columns:minmax(0,1fr)}.split-img--logo{max-width:220px;justify-self:start}.split-img--tall{aspect-ratio:4/3;max-height:none}}
+@media (hover:hover){.hero-img,.split-img{transition:box-shadow .35s ease}.hero-img:hover,.split-img:hover{box-shadow:0 0 0 2px rgba(201,43,118,.55),0 14px 36px rgba(201,43,118,.35)}}
 .rv{opacity:0;transform:translateY(22px)}
+
+/* Actividades con foto e historial */
+.acard-media{position:relative;display:block;width:100%;aspect-ratio:4/3;padding:0;border:0;border-radius:12px;overflow:hidden;background:var(--soft);cursor:zoom-in}
+.acard-media img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.icard-media--empty{cursor:default;background:repeating-linear-gradient(135deg,rgba(201,43,118,.1) 0 14px,transparent 14px 28px),var(--soft)}
+.grid.g2 .acard-media,.grid.g2 .acard .ph{aspect-ratio:16/10}
+.icards--more{margin-top:24px}
+.more-wrap{margin-top:24px;text-align:center}
+.lightbox.single .lb-prev,.lightbox.single .lb-next{visibility:hidden}
+@media (hover:hover){.acard-media{transition:box-shadow .35s ease}.acard-media img{transition:transform .5s cubic-bezier(.2,.7,.2,1)}.acard:hover .acard-media{box-shadow:0 0 0 2px rgba(201,43,118,.55),0 12px 30px rgba(201,43,118,.3)}.acard:hover .acard-media img{transform:scale(1.05)}}
+
+/* Contacto */
+.contact{margin-top:clamp(32px,5vw,48px)}
+.contact-title{font-size:1.25rem;margin-bottom:16px}
+.contact-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.ccard{display:flex;align-items:center;gap:14px;min-width:0;padding:18px 20px;border-radius:16px;background:var(--soft)}
+.ccard b{display:block;font-size:.74rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--brand-text)}
+.ccard a{display:block;margin-top:2px;font-weight:700;font-size:1.05rem;color:var(--fg);text-decoration:none;overflow-wrap:anywhere}
+.ccard a:hover{color:var(--brand-text)}
+.copy{flex:none;margin-left:auto;padding:7px 14px;border:1px solid var(--brand);border-radius:999px;background:var(--bg);color:var(--brand-text);font-weight:700;font-size:.8rem}
+.copy:hover{background:var(--brand);color:#fff}
+@media (max-width:760px){.contact-grid{grid-template-columns:minmax(0,1fr)}}
+@media (max-width:420px){.ccard{flex-wrap:wrap}.copy{margin-left:60px}}
+@media (hover:hover){.ccard{transition:box-shadow .35s ease,transform .25s ease}.ccard:hover{transform:translateY(-3px);box-shadow:0 0 0 1px rgba(201,43,118,.35),0 12px 30px rgba(201,43,118,.25)}}
+
+/* Comité: tarjetas de nombre y cargo */
+.mcard{min-width:0;display:flex;flex-direction:column;justify-content:flex-end;gap:8px;min-height:128px;padding:22px 24px;border:1px solid var(--line);border-radius:16px;background:var(--bg)}
+.mcard .mcard-role{font-size:.74rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--brand-text);line-height:1.35}
+.mcard h3{font-size:1.18rem;line-height:1.25}
+.mcard--lead{min-height:176px;padding:28px;background:var(--brand);border-color:var(--brand);color:#fff}
+.mcard--lead .mcard-role{color:var(--soft)}
+.mcard--lead h3{font-size:clamp(1.4rem,2.6vw,1.9rem)}
+.mini-members .mcard--lead{min-height:150px}
+
+/* SOMOS Impacto: actividades */
+.icards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px}
+@media (max-width:1000px) and (min-width:761px){.icards{gap:18px}.icard-body{padding:18px 18px 22px}.icard h3{font-size:1.12rem}}
+.icard{min-width:0;display:flex;flex-direction:column;border:1px solid var(--line);border-radius:18px;overflow:hidden;background:var(--bg)}
+.icard-media{position:relative;display:block;width:100%;aspect-ratio:16/10;padding:0;border:0;overflow:hidden;background:var(--soft);cursor:zoom-in}
+.icard-media img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.icard-date{position:absolute;left:16px;top:16px;padding:8px 12px;border-radius:12px;background:var(--brand);color:#fff;text-align:center;font-size:.7rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;line-height:1.1;box-shadow:0 6px 18px rgba(32,32,39,.25)}
+.icard-date b{display:block;font:800 1.6rem/1 var(--display);letter-spacing:0}
+.icard-body{display:grid;gap:10px;align-content:start;padding:22px 24px 26px}
+.icard .icard-meta{font-size:.8rem;font-weight:700;letter-spacing:.03em;color:var(--brand-text)}
+.icard h3{font-size:1.3rem}
+.icard p{color:var(--muted)}
+.icard .tag{justify-self:start}
+@media (max-width:760px){.icards{grid-template-columns:minmax(0,1fr)}}
+
+/* SOMOS Impacto: galería */
+.gallery{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));grid-auto-flow:dense;gap:14px}
+.g-item{position:relative;display:block;padding:0;border:0;border-radius:14px;overflow:hidden;background:var(--soft);aspect-ratio:1/1;cursor:zoom-in}
+.g-item img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.g-item::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 55%,rgba(32,32,39,.35));opacity:0;transition:opacity .3s ease}
+.g-item:nth-child(1){grid-column:span 2;grid-row:span 2;aspect-ratio:auto}
+@media (max-width:700px){.gallery{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.g-item:nth-child(1){grid-row:auto;aspect-ratio:4/3}}
+
+/* Convocatoria */
+.conv-card{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:20px 32px;padding:clamp(24px,4vw,40px);border-radius:20px;background:var(--soft)}
+.conv-text{min-width:0}
+.conv-card h3{font-size:clamp(1.4rem,3vw,2rem);margin:14px 0 6px}
+.conv-card p{color:var(--muted);font-weight:600}
+
+/* Redes */
+.social{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.soc{display:flex;align-items:center;gap:14px;min-width:0;padding:18px 20px;border:1px solid var(--line);border-radius:16px;text-decoration:none;color:var(--fg)}
+.soc-ico{flex:none;display:grid;place-items:center;width:46px;height:46px;border-radius:50%;background:var(--brand);color:#fff;font:800 1.25rem/1 var(--display)}
+.soc-txt{min-width:0}
+.soc b{display:block;font-size:1rem}
+.soc small{display:block;color:var(--muted);font-size:.84rem;overflow-wrap:anywhere}
+.soc-arrow{margin-left:auto;color:var(--brand-text);font-weight:800}
+@media (max-width:760px){.social{grid-template-columns:minmax(0,1fr)}}
+
+/* Visor de fotos */
+.lightbox{position:fixed;inset:0;z-index:45;display:grid;grid-template-columns:auto minmax(0,1fr) auto;align-items:center;gap:12px;
+  padding:calc(env(safe-area-inset-top,0px) + 56px) max(12px,env(safe-area-inset-right,0px)) calc(env(safe-area-inset-bottom,0px) + 24px) max(12px,env(safe-area-inset-left,0px));
+  background:rgba(32,32,39,.94)}
+.lb-fig{margin:0;display:grid;justify-items:center;gap:12px;min-width:0}
+.lb-fig img{max-width:100%;max-height:calc(100vh - 160px);width:auto;height:auto;border-radius:12px;box-shadow:0 20px 60px rgba(0,0,0,.4)}
+.lb-fig figcaption{color:var(--soft);font-size:.88rem;text-align:center;max-width:60ch}
+.lb-btn{display:grid;place-items:center;width:48px;height:48px;border:0;border-radius:50%;background:rgba(255,255,255,.12);color:#fff;font-size:1.8rem;line-height:1}
+.lb-btn:hover{background:var(--brand)}
+.lb-close{position:absolute;top:calc(env(safe-area-inset-top,0px) + 10px);right:max(12px,env(safe-area-inset-right,0px))}
+.lightbox :focus-visible{outline-color:#fff}
+@media (max-width:600px){.lightbox{grid-template-columns:minmax(0,1fr);grid-template-rows:minmax(0,1fr) auto}.lb-fig{grid-column:1;grid-row:1}.lb-prev,.lb-next{grid-row:2;position:static}.lb-prev{justify-self:start}.lb-next{justify-self:end;margin-top:-48px}}
+
+@media (hover:hover){
+  .mcard,.icard,.icard-media img,.g-item img{transition:transform .5s cubic-bezier(.2,.7,.2,1),box-shadow .35s ease,border-color .3s}
+  .mcard:hover,.icard:hover{transform:translateY(-3px);border-color:rgba(201,43,118,.5);box-shadow:0 0 0 1px rgba(201,43,118,.4),0 14px 34px rgba(201,43,118,.26)}
+  .mcard--lead:hover{box-shadow:0 0 0 1px rgba(201,43,118,.4),0 14px 34px rgba(201,43,118,.45)}
+  .icard:hover .icard-media img,.g-item:hover img{transform:scale(1.05)}
+  .g-item{transition:box-shadow .35s ease}
+  .g-item:hover{box-shadow:0 0 0 2px rgba(201,43,118,.6),0 12px 30px rgba(201,43,118,.35)}
+  .g-item:hover::after{opacity:1}
+}
 .view .rv.in{opacity:1;transform:none;transition:opacity .65s ease,transform .65s cubic-bezier(.2,.7,.2,1)}
 .view[hidden]{display:none}
 .view{animation:fade .35s ease both}
@@ -376,7 +478,6 @@ html.locked,html.locked body{overflow:hidden}
   </div>
 </div>
 
-<div class="draft" id="draft"><div class="wrap"><b>Borrador de diseño.</b> Los textos y entradas marcados como <b>Ejemplo</b> son provisionales y se reemplazan con el contenido oficial del comité.</div></div>
 
 <header class="hdr">
   <div class="wrap">
@@ -412,7 +513,7 @@ html.locked,html.locked body{overflow:hidden}
           <a class="btn btn--outline" href="#comite"><span>Conoce al comité</span></a>
         </div>
       </div>
-      <div class="ph ph--pink" role="img" aria-label="Espacio para la fotografía principal de SOMOS Torreón" data-label="Fotografía principal de SOMOS Torreón"></div>
+      <img class="hero-img" data-logo="hero" alt="SOMOS, la fuerza que nos une. Torreón, Coahuila" width="1122" height="1402">
     </div>
   </div>
 
@@ -478,8 +579,15 @@ html.locked,html.locked body{overflow:hidden}
 
   <div class="sec">
     <div class="wrap">
-      <div class="shead"><div><span class="eyebrow">Redes sociales</span><h2 class="disp">Síguenos</h2></div></div>
+      <div class="shead"><div><span class="eyebrow">Redes sociales y contacto</span><h2 class="disp">Síguenos</h2></div></div>
       <div class="social" id="social-home"></div>
+      <div class="contact">
+        <h3 class="contact-title">Contacto</h3>
+        <div class="contact-grid">
+          <div class="ccard"><span class="soc-ico"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg></span><div class="soc-txt"><b>Teléfono</b><a href="tel:+528442765407">844 276 54 07</a></div><button class="copy" type="button" data-copy="844 276 54 07">Copiar</button></div>
+          <div class="ccard"><span class="soc-ico"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="3"/><path d="m22 7-10 6L2 7"/></svg></span><div class="soc-txt"><b>Correo</b><a href="mailto:marioberlangareal@gmail.com">marioberlangareal@gmail.com</a></div><button class="copy" type="button" data-copy="marioberlangareal@gmail.com">Copiar</button></div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -501,13 +609,16 @@ html.locked,html.locked body{overflow:hidden}
   </div>
   <div class="sec">
     <div class="wrap">
-      <div class="block" id="n-que">
+      <div class="block split" id="n-que">
+        <div class="split-text">
         <span class="eyebrow">Quiénes somos</span>
         <h2 class="disp" style="margin-top:10px">¿Qué es SOMOS?</h2>
         <p class="lede">SOMOS es un partido político nacional integrado por personas que nacimos desde la sociedad, con el propósito de organizarnos y transformar el país desde la ciudadanía.</p>
         <div class="prose muted" style="margin-top:20px">
           <p>No somos un movimiento tradicional: somos quienes ya no quieren esperar, sino actuar. En Torreón, el comité municipal acerca esa forma de hacer política a las colonias, los barrios y las escuelas de la ciudad.</p>
         </div>
+        </div>
+        <img class="split-img split-img--logo" data-logo="somosmx" alt="Logotipo de SOMOS MX" width="500" height="500">
       </div>
 
       <div class="block" id="n-historia">
@@ -531,8 +642,8 @@ html.locked,html.locked body{overflow:hidden}
       <div class="block mv" id="n-mision">
         <h2 class="disp">Misión y visión</h2>
         <div class="grid g2">
-          <div class="box"><span class="tag">Texto provisional</span><h3>Misión</h3><p class="muted">Organizar a la ciudadanía de Torreón para que participe, proponga y actúe en la vida pública de su municipio.</p></div>
-          <div class="box"><span class="tag">Texto provisional</span><h3>Visión</h3><p class="muted">Un Torreón donde la ciudadanía participa, decide y se siente representada.</p></div>
+          <div class="box"><h3>Misión</h3><p class="muted">Organizar a la ciudadanía de Torreón para que participe, proponga y actúe en la vida pública de su municipio.</p></div>
+          <div class="box"><h3>Visión</h3><p class="muted">Un Torreón donde la ciudadanía participa, decide y se siente representada.</p></div>
         </div>
       </div>
 
@@ -590,10 +701,8 @@ html.locked,html.locked body{overflow:hidden}
           <div class="chips" id="imp-chips">
             <button class="chip" data-scroll="i-pres">Presentación</button>
             <button class="chip" data-scroll="i-equipo">Equipo juvenil</button>
-            <button class="chip" data-scroll="i-proyectos">Proyectos</button>
             <button class="chip" data-scroll="i-actividades">Actividades</button>
             <button class="chip" data-scroll="i-galeria">Galería</button>
-            <button class="chip" data-scroll="i-conv">Convocatorias</button>
           </div>
         </div>
         <img data-logo="imp" alt="SOMOS Impacto Coahuila, la política del futuro" width="320" height="320">
@@ -602,37 +711,35 @@ html.locked,html.locked body{overflow:hidden}
   </div>
   <div class="sec">
     <div class="wrap">
-      <div class="block" id="i-pres">
+      <div class="block split" id="i-pres">
+        <div class="split-text">
         <span class="eyebrow">Presentación</span>
         <h2 class="disp" style="margin-top:10px">Qué es SOMOS Impacto</h2>
         <p class="lede">Un espacio para que las y los jóvenes de Torreón propongan, se organicen y le den rumbo a su ciudad.</p>
         <div class="prose muted" style="margin-top:18px"><p>Aquí va la presentación oficial del programa: a quién está dirigido, cómo se participa y qué busca lograr.</p></div>
         <div class="btns" style="margin-top:24px"><a class="btn btn--brand" href="https://registro.somosmx.org.mx/unete.php" target="_blank" rel="noopener"><span>Quiero sumarme</span></a></div>
+        </div>
+        <img class="split-img split-img--tall" data-logo="jovenes" alt="Jóvenes con playeras de SOMOS" width="900" height="1124">
       </div>
 
       <div class="block" id="i-equipo">
         <h2 class="disp">Equipo juvenil</h2>
-        <figure class="team-photo"><img data-logo="team" alt="Integrantes de SOMOS Impacto Coahuila con su manta" width="1600" height="813"><figcaption>Equipo juvenil de SOMOS Impacto Coahuila.</figcaption></figure>
-      </div>
-
-      <div class="block" id="i-proyectos">
-        <h2 class="disp">Proyectos</h2>
-        <div class="grid g3" id="projects"></div>
+        <figure class="team-photo"><img data-logo="team" alt="Integrantes de SOMOS Impacto Coahuila con su manta" width="1280" height="960"><figcaption>Equipo juvenil de SOMOS Impacto Coahuila.</figcaption></figure>
       </div>
 
       <div class="block" id="i-actividades">
         <h2 class="disp">Actividades</h2>
-        <div class="grid g3" id="impacto-acts"></div>
+        <div class="icards" id="impacto-acts"></div>
+        <div class="icards icards--more" id="impacto-more" hidden></div>
+        <div class="more-wrap"><button class="btn btn--outline" id="impacto-more-btn" type="button" hidden><span>Ver actividades anteriores</span></button></div>
       </div>
 
       <div class="block" id="i-galeria">
         <h2 class="disp">Galería</h2>
         <div class="gallery" id="gallery"></div>
+        <div class="more-wrap"><button class="btn btn--outline" id="gallery-more" type="button" hidden><span>Ver más fotos</span></button></div>
       </div>
 
-      <div class="block" id="i-conv">
-        <h2 class="disp">Convocatorias</h2>
-        <div id="convs"></div>
       </div>
     </div>
   </div>
@@ -640,11 +747,19 @@ html.locked,html.locked body{overflow:hidden}
 
 </main>
 
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Foto ampliada" hidden>
+  <button class="lb-btn lb-close" id="lb-close" type="button" aria-label="Cerrar">×</button>
+  <button class="lb-btn lb-prev" id="lb-prev" type="button" aria-label="Foto anterior">‹</button>
+  <figure class="lb-fig"><img id="lb-img" alt=""><figcaption id="lb-cap"></figcaption></figure>
+  <button class="lb-btn lb-next" id="lb-next" type="button" aria-label="Foto siguiente">›</button>
+</div>
+
 <footer class="foot">
   <div class="wrap">
     <div>
       <img data-logo="mx" alt="SOMOS" width="180" height="34">
       <p><b>Comité Municipal de Torreón</b><br>Torreón, Coahuila</p>
+      <p style="margin-top:12px">Tel. <a href="tel:+528442765407">844 276 54 07</a><br><a href="mailto:marioberlangareal@gmail.com">marioberlangareal@gmail.com</a></p>
       <p style="margin-top:12px;opacity:.8">La fuerza que nos une.</p>
     </div>
     <div>
@@ -662,17 +777,20 @@ html.locked,html.locked body{overflow:hidden}
       <h4>Participa</h4>
       <ul>
         <li><a href="https://registro.somosmx.org.mx/unete.php" target="_blank" rel="noopener">Súmate a SOMOS ↗</a></li>
+        <li><a href="https://www.facebook.com/share/1CNdyki55j/" target="_blank" rel="noopener">Facebook ↗</a></li>
+        <li><a href="https://www.instagram.com/somos_.coahuila/" target="_blank" rel="noopener">Instagram ↗</a></li>
+        <li><a href="https://x.com/somosmxmexico" target="_blank" rel="noopener">X ↗</a></li>
         <li><a href="https://somosmx.org.mx/contacto/" target="_blank" rel="noopener">Contacto nacional ↗</a></li>
         <li><a href="https://somosmx.org.mx/aviso-de-privacidad/" target="_blank" rel="noopener">Aviso de privacidad ↗</a></li>
       </ul>
     </div>
-    <div class="legal"><span>© 2026 SOMOS Torreón. Todos los derechos reservados.</span><span>Sitio en construcción</span></div>
+    <div class="legal"><span>© 2026 SOMOS Torreón. Todos los derechos reservados.</span><span>Torreón, Coahuila</span></div>
   </div>
 </footer>
 
 <script>
 (function(){
-  var LOGOS={mx:"img/somos-blanco.png",imp:"img/somos-impacto.png",map:"img/somos-mapa.png",team:"img/equipo-juvenil.jpg"};
+  var LOGOS={mx:"img/somos-blanco.png",imp:"img/somos-impacto.png",map:"img/somos-mapa.png",team:"img/equipo-juvenil.jpg",hero:"img/portada.jpg",somosmx:"img/somos-mx.png",jovenes:"img/jovenes-somos.jpg"};
   document.querySelectorAll('img[data-logo]').forEach(function(i){i.src=LOGOS[i.dataset.logo];});
 
   /* ---------- Datos (editar aquí) ---------- */
@@ -684,9 +802,9 @@ html.locked,html.locked body{overflow:hidden}
     {n:'Dora Otilia Rivera Reyna',c:'Organización y Desarrollo Institucional',g:'com'},
     {n:'Rafael Leyva Martínez',c:'Operación Electoral y Alianzas',g:'com'},
     {n:'Camila Castañeda Galiano',c:'Comunicación',g:'com'},
-    {n:'Rosa Velia Gómez Ibarra',c:'Administración y Finanzas',g:'com'},
+    {n:'Martha Alicia Barretero Hernández',c:'Administración y Finanzas',g:'com'},
     {n:'Martha Guadalupe Ortiz Polanco',c:'Equidad',g:'com'},
-    {n:'Flavio Alberto Verdeja Medinilla',c:'Juventudes',g:'com'},
+    {n:'Arlet Yessenia Rodríguez Frayre',c:'Juventudes',g:'com'},
     {n:'Enrique Valdez Salmón',c:'Del campo',g:'com'},
     {n:'Luis Ángel Lugo Hernández',c:'Para la inclusión',g:'com'},
     {n:'Hernán José González Rubio',c:'Para sectores productivos',g:'com'},
@@ -711,24 +829,17 @@ html.locked,html.locked body{overflow:hidden}
     {date:'2026-12-05',t:'Encuentro ciudadano',p:'Lugar y hora por confirmar'},
     {date:'2026-12-12',t:'Jornada de limpieza',p:'Lugar y hora por confirmar'}
   ];
-  var ACTS=[
-    {date:'2026-11-15',t:'Jornada comunitaria',tags:['Jornada comunitaria'],d:'Descripción breve de la actividad: qué se hizo, con quién y qué se logró.',tone:'pink'},
-    {date:'2026-11-09',t:'Reunión vecinal',tags:['Reunión vecinal'],d:'Descripción breve de la actividad: qué se habló y qué acuerdos salieron.',tone:'ink'},
-    {date:'2026-11-02',t:'Actividad de SOMOS Impacto',tags:['SOMOS Impacto'],d:'Descripción breve de la actividad del equipo juvenil.',tone:'soft',imp:true},
-    {date:'2026-10-26',t:'Campaña de limpieza',tags:['Campaña de limpieza'],d:'Descripción breve de la actividad y de quienes participaron.',tone:'soft'},
-    {date:'2026-10-18',t:'Entrega de apoyos',tags:['Entrega de apoyos'],d:'Descripción breve de la actividad y de las familias beneficiadas.',tone:'pink'},
-    {date:'2026-10-10',t:'Encuentro ciudadano',tags:['Encuentro ciudadano'],d:'Descripción breve de la actividad: tema, asistentes y conclusiones.',tone:'ink',imp:true}
-  ];
   var PROJECTS=[
     {t:'Nombre del proyecto',d:'Descripción breve del proyecto juvenil: qué busca, quién participa y cómo sumarse.'},
     {t:'Nombre del proyecto',d:'Descripción breve del proyecto juvenil: qué busca, quién participa y cómo sumarse.'},
     {t:'Nombre del proyecto',d:'Descripción breve del proyecto juvenil: qué busca, quién participa y cómo sumarse.'}
   ];
   var CONVS=[
-    {t:'Convocatoria para sumarte al equipo juvenil',p:'Fecha límite por definir',s:'Abierta'},
-    {t:'Convocatoria para proponer proyectos',p:'Fecha límite por definir',s:'Abierta'},
-    {t:'Próximo encuentro de jóvenes',p:'Fechas por definir',s:'Próxima'}
+    {t:'Próximo encuentro de jóvenes',p:'Fechas por definir',s:'Próximamente'}
   ];
+  /* Fotos de SOMOS Impacto (galería y actividades) */
+  var PHOTOS={g1:"img/galeria-1.jpg",g2:"img/galeria-2.jpg",g3:"img/galeria-3.jpg",g4:"img/galeria-4.jpg",g5:"img/galeria-5.jpg",g6:"img/galeria-6.jpg",g7:"img/galeria-7.jpg",g8:"img/galeria-8.jpg"};
+  var ACTIVIDADES=[],IMPACTO_ACTS=[],EVENTOS=[],GALERIA=[];
   var DOCS=[
     {t:'Documentos básicos',d:'Declaración de principios, programa de acción y estatutos.',u:'https://somosmx.org.mx/documentos-basicos/'},
     {t:'Estatutos',d:'Las reglas que organizan al partido. Documento oficial en PDF.',u:'https://somosmx.org.mx/wp-content/uploads/2026/02/estatutos-cambios.pdf'},
@@ -738,10 +849,9 @@ html.locked,html.locked body{overflow:hidden}
     {t:'Aviso de privacidad',d:'Cómo se tratan los datos personales.',u:'https://somosmx.org.mx/aviso-de-privacidad/'}
   ];
   var SOCIAL=[
-    {t:'Instagram',u:'https://www.instagram.com/somosmxmexico/'},
-    {t:'Facebook',u:'https://www.facebook.com/SomosMXMexico'},
-    {t:'X',u:'https://x.com/somosmxmexico'},
-    {t:'TikTok',u:'https://www.tiktok.com/@somos_mx'}
+    {t:'Facebook',h:'Síguenos en Facebook',u:'https://www.facebook.com/share/1CNdyki55j/',ico:'f'},
+    {t:'Instagram',h:'@somos_.coahuila',u:'https://www.instagram.com/somos_.coahuila/',ico:'ig'},
+    {t:'X',h:'@somosmxmexico',u:'https://x.com/somosmxmexico',ico:'X'}
   ];
 
   /* ---------- Utilidades ---------- */
@@ -762,8 +872,7 @@ html.locked,html.locked body{overflow:hidden}
       '<h3>'+n.titulo+'</h3><p>'+n.resumen+'</p><span class="author">Por '+n.autor+'</span></a>';
   }
   function member(m,lead){
-    return '<article class="member'+(lead?' member--lead':'')+'"><div class="ph ph--'+(lead?'ink':'pink')+'" role="img" aria-label="Espacio para la fotografía de '+m.n+'"><b>'+initials(m.n)+'</b></div>'+
-      '<div><h3>'+m.n+'</h3><p class="role">'+m.c+'</p></div></article>';
+    return '<article class="mcard'+(lead?' mcard--lead':'')+'"><p class="mcard-role">'+m.c+'</p><h3>'+m.n+'</h3></article>';
   }
   function actCard(a){
     return '<article class="acard"><div class="ph ph--'+a.tone+'" data-label="Fotografía de la actividad"></div>'+
@@ -774,36 +883,93 @@ html.locked,html.locked body{overflow:hidden}
   /* ---------- Render de bloques ---------- */
   function renderHomeNews(){$('home-news').innerHTML=NEWS.length?NEWS.slice(0,3).map(newsCard).join(''):'<p class="muted">Pronto publicaremos las primeras noticias.</p>';}
   renderHomeNews();
-  $('home-events').innerHTML=EVENTS.map(function(e){
-    var d=dt(e.date);
-    return '<div class="event"><div class="date"><div><b>'+d.getDate()+'</b><span>'+MESES[d.getMonth()]+'</span></div></div><div><h3>'+e.t+'</h3><p>'+e.p+'</p></div><span class="tag">Ejemplo</span></div>';
-  }).join('');
+  function renderEventos(){
+    var hoy=new Date();hoy=hoy.getFullYear()+'-'+String(hoy.getMonth()+1).padStart(2,'0')+'-'+String(hoy.getDate()).padStart(2,'0');
+    var list=(Array.isArray(EVENTOS)?EVENTOS:[]).filter(function(e){return e&&e.titulo&&(!e.fecha||String(e.fecha).slice(0,10)>=hoy);})
+      .sort(function(a,b){var x=a.fecha||'9999',y=b.fecha||'9999';return x<y?-1:x>y?1:0;});
+    $('home-events').innerHTML=list.length?list.map(function(e){
+      var f=e.fecha?String(e.fecha).slice(0,10):'',d=f?dt(f):null;
+      var cuando=d?d.toLocaleDateString('es-MX',{weekday:'long',day:'numeric',month:'long'})+(e.hora?' · '+esc(e.hora):''):'Fechas por definir';
+      var box=d?'<b>'+d.getDate()+'</b><span>'+MESES[d.getMonth()]+'</span>':'<b style="font-size:1.05rem">Pronto</b><span>Por definir</span>';
+      return '<div class="event"><div class="date"><div>'+box+'</div></div><div><h3>'+esc(e.titulo)+'</h3><p>'+cuando.charAt(0).toUpperCase()+cuando.slice(1)+(e.lugar?' · '+esc(e.lugar):'')+'</p>'+(e.descripcion?'<p>'+esc(e.descripcion)+'</p>':'')+'</div></div>';
+    }).join(''):'<p class="muted" style="padding:18px 0">Pronto anunciaremos nuestros próximos eventos.</p>';
+  }
   $('member-count').textContent=MEMBERS.length;
-  $('home-members').innerHTML=MEMBERS.slice(0,2).map(function(m){return member(m,false);}).join('');
-  $('social-home').innerHTML=SOCIAL.map(function(s){return '<a '+ext(s.u)+'>'+s.t+' ↗</a>';}).join('');
+  $('home-members').innerHTML=MEMBERS.slice(0,2).map(function(m){return member(m,true);}).join('');
+  var IG_ICON='<svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>';
+  $('social-home').innerHTML=SOCIAL.map(function(s){return '<a class="soc" '+ext(s.u)+'><span class="soc-ico" aria-hidden="true">'+(s.ico==='ig'?IG_ICON:s.ico)+'</span><span class="soc-txt"><b>'+s.t+'</b><small>'+s.h+'</small></span><span class="soc-arrow" aria-hidden="true">↗</span></a>';}).join('');
+  document.addEventListener('click',function(e){
+    var b=e.target.closest('[data-copy]');if(!b)return;
+    function done(){b.textContent='Copiado';setTimeout(function(){b.textContent='Copiar';},1600);}
+    function sel(){var a=b.parentNode.querySelector('a');var r=document.createRange();r.selectNodeContents(a);var s=window.getSelection();s.removeAllRanges();s.addRange(r);b.textContent='Selecciónalo y cópialo';}
+    try{if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(b.dataset.copy).then(done,sel);}else sel();}catch(err){sel();}
+  });
   $('docs-list').innerHTML=DOCS.map(function(d){return '<a class="doc" '+ext(d.u)+'><div><h3>'+d.t+'</h3><p>'+d.d+'</p></div><span class="more">Abrir ↗</span></a>';}).join('');
 
   $('committee-groups').innerHTML=
     '<div class="group"><h2 class="disp">Presidencia y secretaría</h2><div class="cols-2 keep">'+MEMBERS.filter(function(m){return m.g==='dir';}).map(function(m){return member(m,true);}).join('')+'</div></div>'+
     '<div class="group"><h2 class="disp">Integrantes</h2><div class="cols-3">'+MEMBERS.filter(function(m){return m.g==='com';}).map(function(m){return member(m,false);}).join('')+'</div></div>'+
-    '<div class="group"><h2 class="disp">Asambleístas estatales</h2><div class="cols-3">'+MEMBERS.filter(function(m){return m.g==='asm';}).map(function(m){return member(m,false);}).join('')+'</div></div>';
+    '<div class="group"><h2 class="disp">Asambleístas estatales</h2><div class="cols-2 keep">'+MEMBERS.filter(function(m){return m.g==='asm';}).map(function(m){return member(m,false);}).join('')+'</div></div>';
 
-  (function activities(){
-    var months={};ACTS.slice().sort(function(a,b){return a.date<b.date?1:-1;}).forEach(function(a){var k=a.date.slice(0,7);(months[k]=months[k]||[]).push(a);});
-    $('activities-root').innerHTML=Object.keys(months).sort().reverse().map(function(k){
-      return '<div class="month"><h2>'+longMonth(k+'-01')+'</h2><div class="grid g3">'+months[k].map(actCard).join('')+'</div></div>';
-    }).join('');
-    $('impacto-acts').innerHTML=ACTS.filter(function(a){return a.imp;}).concat(ACTS.filter(function(a){return !a.imp;}).slice(0,1)).map(actCard).join('');
+  /* ---------- Actividades (se editan desde el panel; las anteriores quedan registradas) ---------- */
+  function esc(s){return String(s==null?'':s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});}
+  function imgSrc(p){var m=/galeria-(\d+)\.jpg$/.exec(p||'');var d=m&&PHOTOS['g'+m[1]];return d&&d.indexOf('data:')===0?d:p;}
+  function normActs(list){
+    return (Array.isArray(list)?list:[]).filter(function(a){return a&&a.titulo&&a.fecha;}).map(function(a){
+      return {titulo:esc(a.titulo),fecha:String(a.fecha).slice(0,10),lugar:esc(a.lugar||'Torreón, Coahuila'),descripcion:esc(a.descripcion||''),imagen:a.imagen?esc(imgSrc(a.imagen)):'',etiqueta:esc(a.etiqueta||'')};
+    }).sort(function(a,b){return a.fecha<b.fecha?1:-1;});
+  }
+  function realActCard(a){
+    var media=a.imagen?'<button class="acard-media" type="button" data-src="'+a.imagen+'" data-alt="'+a.titulo+'" aria-label="Ver foto en grande: '+a.titulo+'"><img src="'+a.imagen+'" alt="" loading="lazy"></button>':'<div class="ph ph--soft" data-label="Foto pendiente"></div>';
+    return '<article class="acard">'+media+'<div class="when"><b>'+short(a.fecha)+'</b><span>'+a.lugar+'</span></div><h3>'+a.titulo+'</h3><p>'+a.descripcion+'</p>'+(a.etiqueta?'<div class="tags"><span class="tag tag--ink">'+a.etiqueta+'</span></div>':'')+'</article>';
+  }
+  function renderActividades(){
+    var months={};normActs(ACTIVIDADES).forEach(function(a){var k=a.fecha.slice(0,7);(months[k]=months[k]||[]).push(a);});
+    var keys=Object.keys(months).sort().reverse();
+    $('activities-root').innerHTML=keys.length?keys.map(function(k){var n=months[k].length;
+      return '<div class="month"><h2>'+longMonth(k+'-01')+'</h2><div class="grid '+(n===2||n===4?'g2':'g3')+'">'+months[k].map(realActCard).join('')+'</div></div>';}).join('')
+      :'<p class="muted">Pronto registraremos aquí nuestras actividades.</p>';
+  }
+  function icardHTML(a){
+    var d=dt(a.fecha),largo=d.toLocaleDateString('es-MX',{day:'numeric',month:'long',year:'numeric'});
+    var date='<span class="icard-date"><b>'+d.getDate()+'</b>'+MESES[d.getMonth()]+'</span>';
+    var media=a.imagen?'<button class="icard-media" type="button" data-src="'+a.imagen+'" data-alt="'+a.titulo+'" aria-label="Ver foto en grande: '+a.titulo+'"><img src="'+a.imagen+'" alt="" loading="lazy">'+date+'</button>'
+      :'<div class="icard-media icard-media--empty">'+date+'</div>';
+    return '<article class="icard">'+media+'<div class="icard-body"><p class="icard-meta">'+largo+' · '+a.lugar+'</p><h3>'+a.titulo+'</h3><p>'+a.descripcion+'</p><span class="tag">SOMOS Impacto</span></div></article>';
+  }
+  function renderImpacto(){
+    var list=normActs(IMPACTO_ACTS),first=list.slice(0,3),rest=list.slice(3),more=$('impacto-more'),btn=$('impacto-more-btn'),lbl=btn.querySelector('span');
+    $('impacto-acts').innerHTML=first.length?first.map(icardHTML).join(''):'<p class="muted">Pronto compartiremos aquí las actividades del equipo juvenil.</p>';
+    more.innerHTML=rest.map(icardHTML).join('');more.hidden=true;btn.hidden=!rest.length;
+    lbl.textContent='Ver actividades anteriores ('+rest.length+')';
+    btn.onclick=function(){more.hidden=!more.hidden;lbl.textContent=more.hidden?'Ver actividades anteriores ('+rest.length+')':'Ocultar actividades anteriores';};
+  }
+  renderActividades();renderImpacto();renderEventos();
+
+  var galList=[],galShown=9;
+  function renderGaleria(){
+    galList=(Array.isArray(GALERIA)?GALERIA:[]).filter(function(g){return g&&g.imagen;}).map(function(g){return {src:esc(imgSrc(g.imagen)),alt:esc(g.descripcion||'Foto de SOMOS Impacto')};}).reverse();
+    $('gallery').innerHTML=galList.length?galList.slice(0,galShown).map(function(g,i){return '<button class="g-item" type="button" data-gal="'+i+'" aria-label="Ver foto en grande: '+g.alt+'"><img src="'+g.src+'" alt="'+g.alt+'" loading="lazy"></button>';}).join(''):'<p class="muted">Pronto compartiremos fotos del equipo juvenil.</p>';
+    $('gallery-more').hidden=galList.length<=galShown;
+  }
+  $('gallery-more').onclick=function(){galShown+=8;renderGaleria();};
+  renderGaleria();
+
+  /* ---------- Visor de fotos ---------- */
+  (function lightbox(){
+    var lb=$('lightbox'),img=$('lb-img'),cap=$('lb-cap'),cur=0,last=null,single=false;
+    function show(i){var n=galList.length;if(!n)return;cur=(i+n)%n;var g=galList[cur];img.src=g.src;img.alt=g.alt;cap.textContent=g.alt+'  ·  '+(cur+1)+' de '+n;}
+    function openSingle(src,alt,from){single=true;lb.classList.add('single');last=from;img.src=src;img.alt=alt;cap.textContent=alt;lb.hidden=false;document.documentElement.classList.add('locked');$('lb-close').focus();}
+    function open(i,from){single=false;lb.classList.remove('single');last=from;show(i);lb.hidden=false;document.documentElement.classList.add('locked');$('lb-close').focus();}
+    function close(){lb.hidden=true;document.documentElement.classList.remove('locked');if(last)last.focus();}
+    document.addEventListener('click',function(e){var b=e.target.closest('[data-gal],[data-src]');if(!b)return;if(b.dataset.src)openSingle(b.dataset.src,b.dataset.alt||'',b);else open(+b.dataset.gal,b);});
+    $('lb-close').onclick=close;$('lb-prev').onclick=function(){if(!single)show(cur-1);};$('lb-next').onclick=function(){if(!single)show(cur+1);};
+    lb.addEventListener('click',function(e){if(e.target===lb)close();});
+    document.addEventListener('keydown',function(e){if(lb.hidden)return;if(e.key==='Escape')close();if(single)return;if(e.key==='ArrowLeft')show(cur-1);if(e.key==='ArrowRight')show(cur+1);});
   })();
 
-  $('projects').innerHTML=PROJECTS.map(function(p,i){return '<article class="proj"><span class="tag" style="justify-self:start">Ejemplo</span><h3>'+p.t+'</h3><p>'+p.d+'</p></article>';}).join('');
-  $('gallery').innerHTML=['pink','ink','soft','pink','soft','ink','pink','soft'].map(function(t,i){return '<div class="ph ph--'+t+'" role="img" aria-label="Espacio para foto de la galería" data-label="Foto '+(i+1)+'"></div>';}).join('');
-  $('convs').innerHTML=CONVS.map(function(c){
-    return '<div class="conv"><span class="status'+(c.s==='Próxima'?' status--next':'')+'">'+c.s+'</span><div><h3>'+c.t+' <span class="tag">Ejemplo</span></h3><p>'+c.p+'</p></div><a class="btn btn--ink btn--sm" href="#somos-impacto"><span>Ver bases</span></a></div>';
-  }).join('');
-
   /* ---------- Noticias (periódico) ---------- */
-  var newsFilter='Todas';
+  var newsFilter='Todas',newsShown=6;
   function renderNews(articleId){
     var root=$('news-root');
     var n=articleId?NEWS.filter(function(x){return x.id===articleId;})[0]:null;
@@ -817,13 +983,14 @@ html.locked,html.locked body{overflow:hidden}
     }
     var cats=['Todas'].concat(NEWS.map(function(n){return n.categoria;}).filter(function(c,i,a){return a.indexOf(c)===i;}));
     var list=NEWS.filter(function(n){return newsFilter==='Todas'||n.categoria===newsFilter;});
-    var lead=list[0],rest=list.slice(1);
+    var lead=list[0],rest=list.slice(1,1+newsShown);
     var today=new Date().toLocaleDateString('es-MX',{weekday:'long',day:'numeric',month:'long',year:'numeric'});
     root.innerHTML='<div class="paper-head"><div><span class="eyebrow">El periódico digital de SOMOS Torreón</span><h1 class="disp" style="margin-top:8px">Noticias</h1></div><p class="date-line">'+today+'</p></div>'+
       '<div class="filters" role="group" aria-label="Filtrar por categoría">'+cats.map(function(c){return '<button class="chip" data-cat="'+c+'" aria-pressed="'+(c===newsFilter)+'">'+c+'</button>';}).join('')+'</div>'+
       (lead?'<a class="ncard lead-story" href="#noticias" data-article="'+lead.id+'">'+media(lead)+'<div>'+nmeta(lead,true)+'<h2>'+lead.titulo+'</h2><p>'+lead.resumen+'</p><span class="author">Por '+lead.autor+'</span></div></a>':'')+
-      (list.length?'':'<p class="muted">Aún no hay noticias publicadas.</p>')+'<div class="grid g3">'+rest.map(newsCard).join('')+'</div>';
-    root.querySelectorAll('[data-cat]').forEach(function(b){b.onclick=function(){newsFilter=b.dataset.cat;renderNews(null);armReveal($('news-root'));};});
+      (list.length?'':'<p class="muted">Aún no hay noticias publicadas.</p>')+'<div class="grid '+(rest.length===2||rest.length===4?'g2':'g3')+'">'+rest.map(newsCard).join('')+'</div>';
+    if(list.length-1>newsShown){root.insertAdjacentHTML('beforeend','<div class="more-wrap"><button class="btn btn--outline" id="news-more" type="button"><span>Ver más noticias</span></button></div>');$('news-more').onclick=function(){newsShown+=6;renderNews(null);};}
+    root.querySelectorAll('[data-cat]').forEach(function(b){b.onclick=function(){newsFilter=b.dataset.cat;newsShown=6;renderNews(null);armReveal($('news-root'));};});
   }
 
   document.addEventListener('pointermove',function(e){
@@ -834,7 +1001,7 @@ html.locked,html.locked body{overflow:hidden}
   /* ---------- Aparición suave al bajar ----------
      Solo se ocultan elementos que están debajo de la pantalla al cargar; lo visible nunca se oculta. */
   var io=null;
-  var RV='.shead,.ncard,.event,.member,.acard,.value,.proj,.conv,.doc,.month>h2,.committee-intro>div,.impacto-banner .wrap>*,.social,.gallery .ph,.team-photo,.mv .box,.ident figure,.block>h2,.block>.lede,.block>.prose,.block>p,.block>.btn,.block>.btns,.group>h2,.swatches,.foot .wrap>div';
+  var RV='.contact,.shead,.ncard,.event,.mcard,.icard,.conv-card,.acard,.value,.proj,.conv,.doc,.month>h2,.committee-intro>div,.impacto-banner .wrap>*,.social,.gallery .g-item,.team-photo,.split-img,.mv .box,.ident figure,.block>h2,.block>.lede,.block>.prose,.block>p,.block>.btn,.block>.btns,.group>h2,.swatches,.foot .wrap>div';
   if('IntersectionObserver' in window&&!(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches)){
     io=new IntersectionObserver(function(es){es.forEach(function(e){
       if(!e.isIntersecting)return;var el=e.target;io.unobserve(el);el.classList.add('in');
@@ -881,6 +1048,8 @@ html.locked,html.locked body{overflow:hidden}
   $('burger').addEventListener('click',function(){var o=$('nav').classList.toggle('open');this.setAttribute('aria-expanded',o);this.textContent=o?'Cerrar':'Menú';});
   document.addEventListener('keydown',function(e){if(e.key==='Escape'&&$('nav').classList.contains('open'))closeMenu();});
   route();
+  Promise.all(['content/actividades.json','content/actividades-impacto.json','content/eventos.json','content/galeria.json'].map(function(u){return fetch(u,{cache:'no-cache'}).then(function(r){return r.ok?r.json():[];}).catch(function(){return [];});}))
+    .then(function(r){ACTIVIDADES=r[0];IMPACTO_ACTS=r[1];EVENTOS=r[2];GALERIA=r[3];renderActividades();renderImpacto();renderEventos();renderGaleria();armReveal(document.querySelector('.view:not([hidden])'));});
   fetch('content/noticias.json',{cache:'no-cache'}).then(function(r){if(!r.ok)throw new Error(r.status);return r.json();})
     .then(function(d){NEWS=normNews(d);}).catch(function(){NEWS=[];})
     .then(function(){renderHomeNews();if(location.hash==='#noticias')renderNews(null);armReveal(document.querySelector('.view:not([hidden])'));});
